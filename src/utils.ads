@@ -55,8 +55,6 @@ package utils is
    --Permet de sommer deux T_Set
    function "+"(L : T_set; R : T_set) return T_set;
 
-   --Permet de lire une carte selon le formalisme du launcher
-   function parseCard(str : in String) return T_card;
    
    --Permet d'ajouter une carte a un enssemble
    procedure addToSet(card : in T_card ; set : in out T_set);

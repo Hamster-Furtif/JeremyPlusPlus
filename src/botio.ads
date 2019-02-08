@@ -23,4 +23,7 @@ package botIO is
    --Affiche la valeur et la couleur d'une carte dans la console (sert a debugger)
    procedure printCard(card : in T_card);
 
+   --Permet de lire une carte selon le formalisme du launcher
+   function parseCard(str : in String) return T_card;
+   
 end botIO;

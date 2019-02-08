@@ -116,4 +116,26 @@ package body botIO is
       Put_Line(Standard_Error, "");
    end printCard;
    
+    function parseCard(str : in String) return T_card is
+      card : T_card;
+      values : String := "23456789TJQKA";
+   begin
+      for i in 1..values'Length loop
+         if values(i) = str(str'First) then
+            card.rank := i-1;
+         end if;
+      end loop;
+      
+      case str(str'First + 1) is
+      when 'c' => card.colour := T_colour'Value("clovers");
+      when 's' => card.colour := T_colour'Value("spades");
+      when 'h' => card.colour := T_colour'Value("hearts");
+      when 'd' => card.colour := T_colour'Value("diamonds");
+      when others => card.colour := T_colour'Value("empty");
+      end case;
+   
+      return card;
+   
+   end parseCard;
+   
 end botIO;
