@@ -164,5 +164,12 @@ package body utils is
       return total;
    end "+";
       
+   procedure initGame(game : in out T_game) is
+   begin
+      emptySet(game.history);
+      game.round := 0;
+      emptySet(game.table);
+      emptySet(game.hand);
+   end initGame;
    
 end utils;

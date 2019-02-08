@@ -54,6 +54,7 @@ package body botIO is
 
       elsif (To_String(command.pars(1)) = "button") then
          game.button_is_mine := command.pars(2) = "self";
+         game.round := game.round + 1;
 
       elsif (To_String(command.pars(1)) = "small_blind") then
          game.small_blind := Integer'value(To_String(command.pars(2)));
@@ -97,6 +98,9 @@ package body botIO is
          end if;
          
       elsif (To_String(command.pars(1)) = "win") then
+         
+         game.history := game.history + game.hand + game.table;
+         
          emptySet(game.hand);
          emptySet(game.table);
          if(To_String(command.pars(2)) = "other") then
