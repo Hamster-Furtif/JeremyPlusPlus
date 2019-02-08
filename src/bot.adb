@@ -16,13 +16,13 @@ procedure bot is
    sample : T_Sample;
 
    winning_chances : Float;
+   E : float;
 
    bet : Integer;
 
 begin
 
-   emptySet(game.hand);
-   emptySet(game.table);
+   initGame(game);
 
    while not End_Of_File loop
 
@@ -43,6 +43,9 @@ begin
       when action =>
          best_combinaison := getBestCombination(game.hand+game.table);
          winning_chances := chancesOfWinning(sample, best_combinaison);
+
+
+
          if (winning_chances >= 0.8) then
             bet := Integer'Max(Integer'Min(100 + Integer(winning_chances*Float(100)), game.op_money), game.min_bet);
             put_line("bet" & Integer'Image(bet));

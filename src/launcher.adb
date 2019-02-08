@@ -20,6 +20,8 @@ procedure Launcher is
       2 => new String'(Engine),
       3 => new String'(Ref_Name),
       4 => new String'(Java & " -jar " & Ref_Bot),
+      --4 => new String'("obj/bot2"),
+      --4 => new String'(Ada_Bot),
       5 => new String'(Ada_Name),
       6 => new String'(Ada_Bot),
       7 => null

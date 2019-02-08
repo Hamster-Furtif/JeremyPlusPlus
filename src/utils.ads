@@ -67,5 +67,8 @@ package utils is
    
    --Trouve la meilleur combinaison possible avec les cartes de deux enssembles
    function getBestCombination(set : in T_set) return T_combination;
+   
+   --Initialise un t_game
+   procedure initGame(game : in out T_game);
 
 end utils;
