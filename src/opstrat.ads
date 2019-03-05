@@ -20,7 +20,14 @@ package opstrat is
    procedure add_chances(logic : in out T_logic; chances : in Float);
    function get_avg_chances(logic : T_logic) return Float;
    function get_min_chances(logic : T_logic) return Float;
-   
+   function get_can_bluff(logic : T_logic) return Boolean;
+   function get_can_semi_bluff(logic : T_logic) return Boolean;
+   function get_can_get_bluffed(logic : T_logic) return Boolean;
+   function get_has_logic(logic : T_logic) return Boolean;
+   function get_winning_chances(game : T_game) return Float;
+   function get_nbr_of_bluff(logic : T_logic) return Float;
+   function get_nbr_of_semi_bluff(logic : T_logic) return Float;
+   function get_nbr_of_bluffed(logic : T_logic) return Float;
    
 private
    
@@ -47,9 +54,11 @@ private
       can_get_bluffed : Boolean := FALSE;
       has_logic       : Boolean := TRUE;
          
-      nbr_of_bluff      : Float := 0;
-      nbr_of_semi_bluff : Float := 0;
-      nbr_of_bluffed    : Float := 0;
+      nbr_of_bluff      : Float := 0.0;
+      nbr_of_semi_bluff : Float := 0.0;
+      nbr_of_bluffed    : Float := 0.0;
+      
+      winning_chances : Float := 0.0;
       
       chances_taken : Array(1..75) of Float;
       min_chances_taken : Float := 0;
