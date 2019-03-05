@@ -14,10 +14,13 @@ package opstrat is
    function getSize(h : T_history) return Integer;
    function opIsBluffing(op_hand : in T_set; history : in T_history) return float;
    
-   procedure add_bluff(logic : T_logic; r : Float);
-   procedure add_semi_bluff(logic : T_logic; r : Float);
-   procedure add_bluffed(logic : T_logic; r : Float);
-   procedure add_chances(logic : T_logic; chances : Float)
+   procedure add_bluff(logic : in out T_logic; r : in Float);
+   procedure add_semi_bluff(logic : in out T_logic; r : in Float);
+   procedure add_bluffed(logic : in out T_logic; r : in Float);
+   procedure add_chances(logic : in out T_logic; chances : in Float);
+   function get_avg_chances(logic : T_logic) return Float;
+   function get_min_chances(logic : T_logic) return Float;
+   
    
 private
    

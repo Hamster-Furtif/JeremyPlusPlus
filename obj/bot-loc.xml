@@ -1,190 +1,26 @@
 <?xml version="1.0"?>
 <Locations >
   <Project>
-    <vfs_file />
-    <file_marker column=" 23" line=" 4" >
-      <vfs_project />
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_file>
+    <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_file>
+    <file_marker column=" 16" line=" 116" >
+      <vfs_project>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_project>
+      <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\src\botio.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 52" line=" 20" >
+      <vfs_project>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_project>
+      <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\src\opstrat.ads</vfs_file>
     </file_marker>
     <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\utils.adb</vfs_file>
+      <vfs_project>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_project>
+      <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\src\read_preflop.adb</vfs_file>
     </file_marker>
     <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\utils.ads</vfs_file>
+      <vfs_project>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_project>
+      <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\src\read_preflop.ads</vfs_file>
     </file_marker>
-    <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\montecarlo.ads</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\montecarlo.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\launcher.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\botio.ads</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\botio.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\bot.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.ads</vfs_file>
-    </file_marker>
-    <file_marker column=" 42" line=" 44" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 10" line=" 7" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 49" line=" 15" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 7" line=" 21" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 50" line=" 29" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 7" line=" 21" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 21" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 10" line=" 7" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 12" line=" 10" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 25" line=" 7" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 49" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 49" line=" 15" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 21" line=" 34" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 49" line=" 15" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 50" line=" 29" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 63" line=" 44" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 41" line=" 62" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.ads</vfs_file>
-    </file_marker>
-    <file_marker column=" 63" line=" 44" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\read_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 1" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\utils.ads</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 20" line=" 8" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 259" >
-      <vfs_project />
-      <vfs_file>C:\GNAT\2017\lib\gcc\i686-pc-mingw32\6.3.1\adainclude\a-textio.ads</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker column=" 1" line=" 11" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
-    </file_marker>
-    <file_marker current="true" column=" 4" line=" 6" >
-      <vfs_project>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr</vfs_project>
-      <vfs_file>\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\src\test_preflop.adb</vfs_file>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_project>
+      <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\src\test_preflop.adb</vfs_file>
     </file_marker>
   </Project>
 </Locations>
