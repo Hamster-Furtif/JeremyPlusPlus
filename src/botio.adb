@@ -1,5 +1,5 @@
-with montecarlo, ada.Text_IO, ada.Integer_Text_IO;
-use montecarlo, ada.Text_IO, ada.Integer_Text_IO;
+with montecarlo, ada.Text_IO, ada.Integer_Text_IO, opstrat, read_preflop;
+use montecarlo, ada.Text_IO, ada.Integer_Text_IO, opstrat, read_preflop;
 
 package body botIO is
 
@@ -69,10 +69,15 @@ package body botIO is
    begin
       
       if(To_String(command.pars(1)) = "hand") then
-         emptySet(game.hand);
-         addToSet(parseCard(To_String(command.pars(3))), game.hand);
-         addToSet(parseCard(To_String(command.pars(4))), game.hand);
-         initSample(sample, game.hand);
+         if(To_String(command.pars(2)) = "self") then
+            emptySet(game.hand);
+            addToSet(parseCard(To_String(command.pars(3))), game.hand);
+            addToSet(parseCard(To_String(command.pars(4))), game.hand);
+         else
+            emptySet(game.op_hand);
+            addToSet(parseCard(To_String(command.pars(3))), game.op_hand);
+            addToSet(parseCard(To_String(command.pars(4))), game.op_hand);
+         end if;
          
       elsif(To_String(command.pars(1)) = "table") then
          emptySet(game.table);
@@ -93,16 +98,29 @@ package body botIO is
 
       elsif (To_String(command.pars(1)) = "move") then
          game.last_op_move := T_move'Value(To_String(command.pars(3)));
-         if(To_String(command.pars(2)) = "other" and To_String(command.pars(3)) = "bet") then
-            game.op_money := game.op_money - Integer'Value(To_String(command.pars(4)));
+         
+         if(To_String(command.pars(2)) = "other" ) then
+            if (To_String(command.pars(3)) = "bet") then
+               game.op_money := game.op_money - Integer'Value(To_String(command.pars(4)));
+               add_T_action(game.history, Move'Value("bet"), Integer'Value(To_String(command.pars(4))));
+            else
+               add_T_action(game.history, Move'Value(command.pars(3)));
+            end if;
+
          end if;
          
       elsif (To_String(command.pars(1)) = "win") then
-         
-         game.history := game.history + game.hand + game.table;
+                  
+         if(game.op_hand.size > 0) then
+            if(opIsBluffing(game.op_hand, game.history) > 0) then
+               
+            end if;
+         end if;
          
          emptySet(game.hand);
+         emtpySet(game.op_hand);
          emptySet(game.table);
+         
          if(To_String(command.pars(2)) = "other") then
             game.op_money := game.op_money + Integer'Value(To_String(command.pars(3)));
          else
@@ -120,7 +138,7 @@ package body botIO is
       Put_Line(Standard_Error, "");
    end printCard;
    
-    function parseCard(str : in String) return T_card is
+   function parseCard(str : in String) return T_card is
       card : T_card;
       values : String := "23456789TJQKA";
    begin
@@ -142,4 +160,5 @@ package body botIO is
    
    end parseCard;
    
+
 end botIO;

@@ -33,4 +33,20 @@ begin
       return h.size;
    end getSize;
    
+   function opIsBluffing(op_hand : in T_set; history : in T_history) return Float is
+      r : Float;
+   begin
+      
+      --Si l'op a peu de chances de gagner, mais mise quand même, il bluff (r=1)
+      --On diminue les chances linéairement de 0.5 à 0.75 jusqu'à atteindre 0, où la probabilité qu'il bluffe est estimée nulle
+      if(Get_Winning_Chance(op_hand.set(0), op_hand.set(1)) < 0.5 and getBet(history, 0) > 0) then
+         r := 1.0;
+      elsif(Get_Winning_Chance(op_hand.set(0), op_hand.set(1)) < 0.75 and getBet(history, 0) > 0) then
+         r := 3.0 - Get_Winning_Chance(op_hand.set(0), op_hand.set(1)*4;
+      else
+         r := 0.0;
+      end if;
+      
+      return r;
+   end opIsBluffing;
 end opstrat;

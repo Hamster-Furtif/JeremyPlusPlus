@@ -1,5 +1,5 @@
-with Ada.Strings.Unbounded;
-use Ada.Strings.Unbounded;
+with Ada.Strings.Unbounded, opstrat;
+use Ada.Strings.Unbounded, opstrat;
 
 package utils is
 
@@ -26,13 +26,14 @@ package utils is
    type T_game is 
       record
          settings : T_settings;
-         history : T_set;
+         history : T_history;
          round : Integer;
          
          pot : Integer;
          
-         table : T_set ;
+         table : T_set;
          hand :  T_set;
+         op_hand : T_set;
          
          my_money : Integer;  --Mon argent
          op_money : Integer;  --L'argent de mon opposant
@@ -44,9 +45,7 @@ package utils is
          
          amount_to_call : Integer;
          min_bet : Integer;
-         
-         last_op_move : T_move;
-         
+                  
       end record;
    
    --Permet de comparer des combinaisons par superiorite selon les regles du poker 
