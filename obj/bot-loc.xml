@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <Locations >
-  <Project>
-    <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_file>
+  <Project >
     <file_marker column=" 16" line=" 116" >
       <vfs_project>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_project>
       <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\src\botio.adb</vfs_file>
@@ -18,9 +17,17 @@
       <vfs_project>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_project>
       <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\src\read_preflop.ads</vfs_file>
     </file_marker>
-    <file_marker current="true" column=" 1" line=" 1" >
+    <file_marker column=" 1" line=" 1" >
       <vfs_project>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_project>
       <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\src\test_preflop.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 12" line=" 52" >
+      <vfs_project>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_project>
+      <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\src\opstrat.ads</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\bot.gpr</vfs_project>
+      <vfs_file>\\dataetu\Etudiants$\dayerr\Documents\Informatique 2\Projet\JeremyPlusPlus\src\opstrat.adb</vfs_file>
     </file_marker>
   </Project>
 </Locations>
