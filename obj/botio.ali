@@ -1,0 +1,211 @@
+V "GNAT Lib v2017"
+A -gnatA
+A -mtune=generic
+A -march=pentium4
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_ENUMERATION_MAPS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV SPARK_05
+
+U botio%b		botio.adb		a4d395fb NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W interfaces%s		interfac.ads		interfac.ali
+W montecarlo%s		montecarlo.adb		montecarlo.ali
+W system%s		system.ads		system.ali
+W system.img_enum_new%s	s-imenne.adb		s-imenne.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+W system.val_enum%s	s-valenu.adb		s-valenu.ali
+W system.val_int%s	s-valint.adb		s-valint.ali
+
+U botio%s		botio.ads		8ce5e3a3 EE NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W montecarlo%s		montecarlo.adb		montecarlo.ali
+W system%s		system.ads		system.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W utils%s		utils.adb		utils.ali
+
+D ada.ads		20170516105950 76789da1 ada%s
+D a-charac.ads		20170516105954 2d3ec45b ada.characters%s
+D a-chlat1.ads		20170516105952 66457d31 ada.characters.latin_1%s
+D a-except.ads		20170516105952 291912d5 ada.exceptions%s
+D a-finali.ads		20170516105954 bf4f806b ada.finalization%s
+D a-flteio.ads		20170516105952 e18a47a0 ada.float_text_io%s
+D a-inteio.ads		20170516105954 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20170516105948 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20170516105952 119b8fb3 ada.streams%s
+D a-string.ads		20170516105952 90ac6797 ada.strings%s
+D a-strmap.ads		20170516105952 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20170516105950 ecdfa332 ada.strings.unbounded%s
+D a-tags.ads		20170516105954 d3a89129 ada.tags%s
+D a-textio.ads		20170516105954 386df5d4 ada.text_io%s
+D a-tiflio.ads		20170516105948 56fbda09 ada.text_io.float_io%s
+D a-tiinio.ads		20170516105950 aa04e5d6 ada.text_io.integer_io%s
+D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
+D botio.ads		20190305083840 fce2945a botio%s
+D botio.adb		20190305083840 a24f0496 botio%b
+D interfac.ads		20170516105950 5ab55268 interfaces%s
+D i-cstrea.ads		20170516105950 e53d8b8e interfaces.c_streams%s
+D montecarlo.ads	20190305083840 34587947 montecarlo%s
+D system.ads		20170516105954 32a08138 system%s
+D s-atocou.ads		20170516105956 b45c2d8d system.atomic_counters%s
+D s-crtl.ads		20170516105948 0ebbdb71 system.crtl%s
+D s-exctab.ads		20170516105954 54135002 system.exception_table%s
+D s-ficobl.ads		20170516105956 078245e4 system.file_control_block%s
+D s-finmas.ads		20170516105954 7811a767 system.finalization_masters%s
+D s-finroo.ads		20170516105954 4ff27390 system.finalization_root%s
+D s-imenne.ads		20170516105950 614c06c0 system.img_enum_new%s
+D s-memory.ads		20170516105952 597d6634 system.memory%s
+D s-parame.ads		20170516105954 7e2a0d7f system.parameters%s
+D s-secsta.ads		20170516105954 9751b57e system.secondary_stack%s
+D s-soflin.ads		20170516105950 14e1eb6c system.soft_links%s
+D s-stache.ads		20170516105954 a37c21ec system.stack_checking%s
+D s-stalib.ads		20170516105954 09bd3940 system.standard_library%s
+D s-stalib.adb		20170516105948 f2fe2716 system.standard_library%b
+D s-stoele.ads		20170516105956 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20170516105950 b16154c2 system.storage_pools%s
+D s-stposu.ads		20170516105948 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20170516105948 aedef97e system.stream_attributes%s
+D s-traent.ads		20170516105950 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20170516105952 34867c83 system.unsigned_types%s
+D s-valenu.ads		20170516105954 bb1a4295 system.val_enum%s
+D s-valint.ads		20170516105952 48a52a3f system.val_int%s
+D s-wchcon.ads		20170516105954 1b7d22d2 system.wch_con%s
+D utils.ads		20190305083842 5ecb2428 utils%s
+X 1 ada.ads
+16K9*Ada 20e8 18|1r6 1r48 2r5 2r47 19|1r18 1r31 2r17 2r30
+X 7 a-inteio.ads
+18K13*Integer_Text_IO[16|46] 18|1w52 2r51 19|1w35 2r34
+X 10 a-string.ads
+16K13*Strings 35e16 18|1r10 2r9
+X 12 a-strunb.ads
+76K21*Unbounded 490e26 18|1w18 2r17
+79R9*Unbounded_String<5|43R9> 474e14 18|7r36
+94V13*To_Unbounded_String{79R9} 19|15s35 18s44 26s9
+100V13*To_String{string} 19|34s10 35s55 36s13 37s54 38s13 39s54 45s10 46s38
+. 48s14 50s44 52s44 55s14 59s14 60s44 62s14 63s42 71s10 73s29 74s29 77s13
+. 81s32 82s47 85s13 86s36 88s13 89s47 91s13 92s40 94s14 95s44 96s13 96s54
+. 97s60 100s14 106s13 107s60 109s60
+170V14*"="{boolean} 19|49s29 56s49
+X 14 a-textio.ads
+49K13*Text_IO 471e16 19|1w22 2r21
+52P9*File_Type
+119V13*Standard_Error{52P9} 19|116s16 117s11 118s11 119s11 120s16
+241U14*Put 19|118s7 119s7
+259U14*Put_Line 19|116s7 120s7
+X 16 a-tiinio.ads
+60U14*Put 19|117s7[7|18]
+X 18 botio.ads
+4K9*botIO 29l5 29e10 19|4b14 145l5 145t10
+6E9*T_prefix 6e65 10r19 19|16r34
+6n22*settings{6E9}
+6n32*update_game{6E9}
+6n45*update_hand{6E9}
+6n58*action{6E9}
+7A9*T_params(12|79R9)<integer> 11r17
+8R9*T_command 13e17 16r68 19r37 20r39 21r39 19|6r68 9r16 32r37 43r39 68r39
+10e10*prefix{6E9} 19|16m24
+11a10*pars{7A9} 19|15m24 18m24 25m15 34r28 35r73 36r31 37r72 38r31 39r72
+. 45r28 46r56 48r32 49r21 50r62 52r62 55r32 56r41 59r32 60r62 62r32 63r60
+. 71r28 73r47 74r47 77r31 81r50 82r65 85r31 86r54 88r31 89r65 91r31 92r58
+. 94r32 95r62 96r31 96r72 97r78 100r32 106r31 107r78 109r78
+12i10*size{integer} 19|27m15 80r31
+16V13*splitLine{8R9} 16>23 16>38 19|6b13 29l8 29t17
+16a23 line{string} 19|6b23 13r13 13r31 15r55 15r60 16r49 16r54 18r65 26r29
+16i38 line_length{integer} 19|6b38 12r19 26r46
+19U14*readSettings 19>27 19=48 19|32b14 41l8 41t20
+19r27 command{8R9} 19|32b27 34r20 35r65 36r23 37r64 38r23 39r64
+19r48 game{47|26R9} 19|32b48 35m10 37m10 39m10
+20U14*readUpdateGame 20>29 20=50 19|43b14 66l8 66t22
+20r29 command{8R9} 19|43b29 45r20 46r48 48r24 49r13 50r54 52r54 55r24 56r33
+. 59r24 60r54 62r24 63r52
+20r50 game{47|26R9} 19|43b50 46m10 50m13 52m13 56m10 57m10 57r24 60m10 63m10
+21U14*readUpdateHand 21>29 21=50 21=73 19|68b14 112l8 112t22
+21r29 command{8R9} 19|68b29 71r20 73r39 74r39 77r23 80r23 81r42 82r57 85r23
+. 86r46 88r23 89r57 91r23 92r50 94r24 95r54 96r23 96r64 97r70 100r24 106r23
+. 107r70 109r70
+21r50 game{47|26R9} 19|68b50 72m19 72r19 73m58 73r58 74m58 74r58 75r29 78m19
+. 78r19 79r29 81m61 81r61 86m10 89m10 92m10 95m10 97m13 97r30 102m10 102r26
+. 102r41 102r53 104m19 104r19 105m19 105r19 107m13 107r30 109m13 109r30
+21a73 sample{22|7A9} 19|68b73 75m21 79m21 82m29
+24U14*printCard 24>24 19|114b14 121l8 121t17
+24r24 card{47|9R9} 19|114b24 117r27 119r43
+27V13*parseCard{47|9R9} 27>23 19|73s19 74s19 81s22 82s37 123b14 143l8 143t17
+27a23 str{string} 19|123b24 128r25 128r29 133r12 133r16
+X 19 botio.adb
+7i7 word_begin{integer} 18r70 20m13 26r34
+8i7 word_count{integer} 14r16 18r29 21m13 21r27 25r20 27r23
+9r7 command{18|8R9} 15m16 15r16 16m16 18m16 18r16 25m7 25r7 27m7 28r14
+12i11 i{integer} 13r18 13r36 15r72 16r66 18r82 20r27
+80i14 i{integer} 81r55 82r70
+124r7 card{47|9R9} 129m13 134m19 135m19 136m19 137m19 138m22 141r14
+125a7 values{string} 127r19 128r13
+127i11 i{integer} 128r20 129r26
+X 22 montecarlo.ads
+4K9*montecarlo 18|1w36 2r35 19|1w6 2r5 22|24e15
+7A9*T_Sample(47|15R9)<integer> 18|21r89 19|68r89
+10U14*initSample 19|75s10 79s10
+16U14*addToSampleSets 19|82s13
+X 23 system.ads
+67M9*Address
+X 31 s-memory.ads
+53V13*Alloc{23|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{23|67M9} 105i<c,__gnat_realloc>22
+X 37 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+X 47 utils.ads
+4K9*utils 18|1w29 2r28 47|74e10
+6E9*T_colour 19|119r28 134r34 135r34 136r34 137r34 138r37 47|6e63
+7E9*T_move 19|95r31 47|7e43
+9R9*T_card 18|24r34 27r47 19|114r34 123r48 124r14 47|13e17
+11i10*rank{integer} 19|117r32 129m18
+12e10*colour{6E9} 19|119r48 134m24 135m24 136m24 137m24 138m27
+22i10*timebank_max{integer} 19|37m24
+23i10*timebank_sup{integer} 19|39m24
+24i10*hands_per_lvl{integer} 19|35m24
+26R9*T_game 18|19r63 20r65 21r64 19|32r62 43r66 68r65 47|50e17
+28r10*settings{20R9} 19|35m15 37m15 39m15
+29r10*history{15R9} 19|102m15 102r31
+30i10*round{integer} 19|46m15 57m15 57r29
+32i10*pot{integer} 19|86m15
+34r10*table{15R9} 19|78m24 81m66 102r58 105m24
+35r10*hand{15R9} 19|72m24 73m63 74m63 75r34 79r34 102r46 104m24
+37i10*my_money{integer} 19|50m18
+38i10*op_money{integer} 19|52m18 97m18 97r35 107m18 107r35 109m18 109r35
+40b10*button_is_mine{boolean} 19|56m15
+42i10*small_blind{integer} 19|60m15
+43i10*big_blind{integer} 19|63m15
+45i10*amount_to_call{integer} 19|89m15
+46i10*min_bet{integer} 19|92m15
+48e10*last_op_move{7E9} 19|95m15
+56V14*"+"{15R9} 19|102s39 102s51
+60U14*addToSet 19|73s10 74s10 81s13
+63U14*emptySet 19|72s10 78s10 104s10 105s10
+

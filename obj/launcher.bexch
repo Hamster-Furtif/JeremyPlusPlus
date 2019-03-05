@@ -1,0 +1,19 @@
+[GENERATED OBJECT FILE]
+b__launcher.o
+[PROJECT FILES]
+\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr
+20190305083840
+[BOUND OBJECT FILES]
+\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\launcher.o
+[GENERATED SOURCE FILES]
+b__launcher.ads
+b__launcher.adb
+b__launcher.ali
+[RESULTING OPTIONS]
+-L\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\
+-L\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\
+-LC:/gnat/2017/lib/gcc/i686-pc-mingw32/6.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2017/lib/gcc/i686-pc-mingw32/6.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000

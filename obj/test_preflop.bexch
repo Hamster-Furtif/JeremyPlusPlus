@@ -1,0 +1,23 @@
+[GENERATED OBJECT FILE]
+b__test_preflop.o
+[PROJECT FILES]
+\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\bot.gpr
+20190305083840
+[BOUND OBJECT FILES]
+\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\montecarlo.o
+\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\botio.o
+\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\utils.o
+\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\read_preflop.o
+\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\test_preflop.o
+[GENERATED SOURCE FILES]
+b__test_preflop.ads
+b__test_preflop.adb
+b__test_preflop.ali
+[RESULTING OPTIONS]
+-L\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\
+-L\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\
+-LC:/gnat/2017/lib/gcc/i686-pc-mingw32/6.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2017/lib/gcc/i686-pc-mingw32/6.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000

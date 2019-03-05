@@ -1,0 +1,132 @@
+V "GNAT Lib v2017"
+M P W=b
+A -gnatA
+A -mtune=generic
+A -march=pentium4
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U launcher%b		launcher.adb		812aff79 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.discrete_random%s
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W gnat%s		gnat.ads		gnat.ali
+W gnat.os_lib%s		g-os_lib.ads		g-os_lib.ali
+Z system%s		system.ads		system.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D ada.ads		20170516105950 76789da1 ada%s
+D a-charac.ads		20170516105954 2d3ec45b ada.characters%s
+D a-chlat1.ads		20170516105952 66457d31 ada.characters.latin_1%s
+D a-except.ads		20170516105952 291912d5 ada.exceptions%s
+D a-ioexce.ads		20170516105948 e4a01f64 ada.io_exceptions%s
+D a-numeri.ads		20170516105950 bb51c45a ada.numerics%s
+D a-nudira.ads		20170516105950 71e55def ada.numerics.discrete_random%s
+D a-nudira.adb		20170516105950 72908cdb ada.numerics.discrete_random%b
+D a-stream.ads		20170516105952 119b8fb3 ada.streams%s
+D a-string.ads		20170516105952 90ac6797 ada.strings%s
+D a-strfix.ads		20170516105956 d07c346e ada.strings.fixed%s
+D a-strmap.ads		20170516105952 e8bb714a ada.strings.maps%s
+D a-tags.ads		20170516105954 d3a89129 ada.tags%s
+D a-textio.ads		20170516105954 386df5d4 ada.text_io%s
+D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
+D a-uncdea.ads		20170516105954 f15a5ed1 ada.unchecked_deallocation%s
+D gnat.ads		20170516105956 fd2ad2f1 gnat%s
+D g-os_lib.ads		20170516105948 0db74523 gnat.os_lib%s
+D interfac.ads		20170516105950 5ab55268 interfaces%s
+D i-cstrea.ads		20170516105950 e53d8b8e interfaces.c_streams%s
+D launcher.adb		20190305083840 1569260f launcher%b
+D system.ads		20170516105954 32a08138 system%s
+D s-crtl.ads		20170516105948 0ebbdb71 system.crtl%s
+D s-exctab.ads		20170516105954 54135002 system.exception_table%s
+D s-ficobl.ads		20170516105956 078245e4 system.file_control_block%s
+D s-imgint.ads		20170516105950 02dbe0c2 system.img_int%s
+D s-imguns.ads		20170516105952 9ff43cf7 system.img_uns%s
+D s-os_lib.ads		20170516105954 62a32069 system.os_lib%s
+D s-parame.ads		20170516105954 7e2a0d7f system.parameters%s
+D s-rannum.ads		20170516105952 99ade2f2 system.random_numbers%s
+D s-rannum.adb		20170516105954 20ba1217 system.random_numbers%b
+D s-ransee.ads		20170516105954 01a57b33 system.random_seed%s
+D s-secsta.ads		20170516105954 9751b57e system.secondary_stack%s
+D s-soflin.ads		20170516105950 14e1eb6c system.soft_links%s
+D s-stache.ads		20170516105954 a37c21ec system.stack_checking%s
+D s-stalib.ads		20170516105954 09bd3940 system.standard_library%s
+D s-stoele.ads		20170516105956 2dc34a04 system.storage_elements%s
+D s-string.ads		20170516105954 8fe54fb7 system.strings%s
+D s-traent.ads		20170516105950 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20170516105952 34867c83 system.unsigned_types%s
+D s-valuns.ads		20170516105954 10a8ed3b system.val_uns%s
+D s-wchcon.ads		20170516105954 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 20e8 21|1r6 2r5 5r6 6r6 7r5 29r28 38r54
+X 6 a-numeri.ads
+16K13*Numerics 32e17 21|5r10 29r32
+X 7 a-nudira.ads
+44k22*Discrete_Random 75e33 21|5w19 29r41
+50R9 Generator<30|63R9> 21|31r25[29]
+52V13 Random{integer} 21|37s21[29]
+55U14 Reset<30|100p14> 21|36s13[29]
+X 8 a-nudira.adb
+53V16 Random[30|83]{integer} 31|392b13[21|29]
+X 10 a-string.ads
+16K13*Strings 35e16 21|6r10 7r9 38r58
+33n24*Left{33E9} 21|38r66
+X 11 a-strfix.ads
+18K21*Fixed 251e22 21|6w18 7r17
+195V13*Trim{string} 21|38s27
+X 14 a-textio.ads
+49K13*Text_IO 471e16 21|1w10 2r9
+263U14*Put_Line 21|35s4 46s7
+X 17 gnat.ads
+34K9*GNAT 37e9 21|3r6 4r5
+X 18 g-os_lib.ads
+51K14*OS_Lib=51:36 21|3w11 4r10
+X 19 interfac.ads
+74M9*Unsigned_32
+77M9*Unsigned_64
+X 21 launcher.adb
+9U11*Launcher 9b11 48l5 48t13
+10a4 Java{string} 22r24 41r29
+11a4 Engine{string} 20r24
+12a4 Ref_Name{string} 21r24
+13a4 Ref_Bot{string} 22r42
+14a4 Ada_Name{string} 25r24
+15a4 Ada_Bot{string} 26r24
+16b4 Result{boolean} 43m29 45r12
+17a4 Arguments{38|54A9} 39m4 42r29
+29K12 Rand_Int[7|44] 31r16 36r4 37r12
+30i4 seed{integer} 37m4 38r47
+31r4 generator{7|50R9[29]} 36r19 37r28
+32p4 seedStr{28|67P12} 38m4 39r20
+X 28 s-os_lib.ads
+67P12*String_Access{38|45P9} 21|32r14
+721A12*Argument_List{74A12}<integer> 21|17r16
+848U14*Spawn 21|40s4
+849a7 Program_Name{string} 21|41r7
+850a7 Args{721A12} 21|42r7
+851b7 Success{boolean} 21|43r7
+X 30 s-rannum.ads
+75V13*Random{19|74M9} 31|221i21
+76V13*Random{19|77M9} 31|221i21
+X 38 s-string.ads
+45P9*String_Access(string)
+54A9*String_List(45P9)<integer>
+

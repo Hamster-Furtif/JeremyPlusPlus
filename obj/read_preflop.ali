@@ -1,0 +1,105 @@
+V "GNAT Lib v2017"
+A -gnatA
+A -mtune=generic
+A -march=pentium4
+P SS ZX
+
+RN
+RV NO_FLOATING_POINT
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+
+U read_preflop%b	read_preflop.adb	62eb21d7 NE OO PK IL
+W ada%s			ada.ads			ada.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W system.concat_4%s	s-conca4.adb		s-conca4.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W utils%s		utils.adb		utils.ali
+
+U read_preflop%s	read_preflop.ads	e801110f EE NE OO PK IL
+W ada.tags%s		a-tags.adb		a-tags.ali
+W utils%s		utils.adb		utils.ali
+
+D ada.ads		20170516105950 76789da1 ada%s
+D a-charac.ads		20170516105954 2d3ec45b ada.characters%s
+D a-chlat1.ads		20170516105952 66457d31 ada.characters.latin_1%s
+D a-except.ads		20170516105952 291912d5 ada.exceptions%s
+D a-finali.ads		20170516105954 bf4f806b ada.finalization%s
+D a-ioexce.ads		20170516105948 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20170516105952 119b8fb3 ada.streams%s
+D a-string.ads		20170516105952 90ac6797 ada.strings%s
+D a-strmap.ads		20170516105952 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20170516105950 ecdfa332 ada.strings.unbounded%s
+D a-tags.ads		20170516105954 d3a89129 ada.tags%s
+D a-textio.ads		20170516105954 386df5d4 ada.text_io%s
+D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
+D interfac.ads		20170516105950 5ab55268 interfaces%s
+D i-cstrea.ads		20170516105950 e53d8b8e interfaces.c_streams%s
+D read_preflop.ads	20190305091224 b6ca3527 read_preflop%s
+D read_preflop.adb	20190305100406 b287c50c read_preflop%b
+D system.ads		20170516105954 32a08138 system%s
+D s-atocou.ads		20170516105956 b45c2d8d system.atomic_counters%s
+D s-conca4.ads		20170516105954 7e642b20 system.concat_4%s
+D s-crtl.ads		20170516105948 0ebbdb71 system.crtl%s
+D s-exctab.ads		20170516105954 54135002 system.exception_table%s
+D s-ficobl.ads		20170516105956 078245e4 system.file_control_block%s
+D s-finmas.ads		20170516105954 7811a767 system.finalization_masters%s
+D s-finroo.ads		20170516105954 4ff27390 system.finalization_root%s
+D s-imgint.ads		20170516105950 02dbe0c2 system.img_int%s
+D s-parame.ads		20170516105954 7e2a0d7f system.parameters%s
+D s-secsta.ads		20170516105954 9751b57e system.secondary_stack%s
+D s-soflin.ads		20170516105950 14e1eb6c system.soft_links%s
+D s-stache.ads		20170516105954 a37c21ec system.stack_checking%s
+D s-stalib.ads		20170516105954 09bd3940 system.standard_library%s
+D s-stoele.ads		20170516105956 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20170516105950 b16154c2 system.storage_pools%s
+D s-stposu.ads		20170516105948 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20170516105948 aedef97e system.stream_attributes%s
+D s-traent.ads		20170516105950 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20170516105952 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20170516105954 1b7d22d2 system.wch_con%s
+D utils.ads		20190305083842 5ecb2428 utils%s
+X 1 ada.ads
+16K9*Ada 20e8 17|1r13 1r37
+X 12 a-textio.ads
+49K13*Text_IO 471e16 17|1w17 1r41
+263U14*Put_Line 17|14s7 28s7 43s7
+X 16 read_preflop.ads
+2K9*read_preflop 93l5 93e17 17|2b14 56l5 56t17
+5A9*T_array_chance(integer)<integer> 7r25 24r26 41r25 80r32 17|48r32
+7a4*Win_Array{5A9} 17|15r33
+24a4*Lose_Array{5A9} 17|29r33
+41a4*Tie_Array{5A9} 17|44r33
+62V13*Get_Winning_Chance{float} 62>33 62>49 17|4b13 16l8 16t26
+62r33 card1{39|9R9} 17|4b33 7r10 8r27 9r27 11r27 12r27
+62r49 card2{39|9R9} 17|4b49 7r25 8r38 9r38 11r38 12r38
+68V13*Get_Losing_Chance{float} 68>32 68>48 17|18b13 30l8 30t25
+68r32 card1{39|9R9} 17|18b32 21r10 22r27 23r27 25r27 26r27
+68r48 card2{39|9R9} 17|18b48 21r25 22r38 23r38 25r38 26r38
+74V13*Get_Tie_Chance{float} 74>29 74>45 17|33b13 45l8 45t22
+74r29 card1{39|9R9} 17|33b29 36r9 37r27 38r27 40r27 41r27
+74r45 card2{39|9R9} 17|33b45 36r24 37r38 38r38 40r38 41r38
+80V13*getFromArray{integer} 80>26 80>48 80>61 17|15s20 29s20 44s20 48b13
+. 51l8 51t20
+80a26 lst{5A9} 17|48b26 50r14
+80i48 x{integer} 17|48b48 50r25
+80i61 y{integer} 17|48b61 50r32
+X 17 read_preflop.adb
+5i7 x{integer} 9m10 11m10 14r38 15r43
+5i9 y{integer} 8m10 12m10 14r68 15r45
+19i7 x{integer} 23m10 25m10 28r38 29r44
+19i9 y{integer} 22m10 26m10 28r68 29r46
+34i7 x{integer} 38m10 40m10 43r38 44r43
+34i9 y{integer} 37m10 41m10 43r68 44r45
+X 39 utils.ads
+4K9*utils 16|1w6 1r17 17|1w6 1r30 39|74e10
+9R9*T_card 16|62r41 62r57 68r40 68r56 74r37 74r53 17|4r41 4r57 18r40 18r56
+. 33r37 33r53 39|13e17
+11i10*rank{integer} 17|8r33 8r44 9r33 9r44 11r33 11r44 12r33 12r44 22r33
+. 22r44 23r33 23r44 25r33 25r44 26r33 26r44 37r33 37r44 38r33 38r44 40r33
+. 40r44 41r33 41r44
+12e10*colour{6E9} 17|7r16 7r31 21r16 21r31 36r15 36r30
+
