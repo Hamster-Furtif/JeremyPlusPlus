@@ -1,32 +1,36 @@
-with Ada.Strings.Unbounded, opstrat;
-use Ada.Strings.Unbounded, opstrat;
+with Ada.Strings.Unbounded;
+use Ada.Strings.Unbounded;
 
 package utils is
 
    type T_colour is (empty, spades, hearts, diamonds, clovers);
-   type T_move is (check, fold, call, bet);
+   type T_move is (check, fold, call, bet, none);
    type T_combination is (none, paire, paire_2, brelan, suite, couleur, full, carre, quinte_f, quinte_f_r);
    type T_card   is
       record
          rank : Integer; --0 => 2, 13 => Ace
          colour : T_colour;
       end record;
+ 
    type T_card_list is Array(0..51) of T_card;
+ 
    type T_set is
       record
          set : T_card_list;
          size : Integer := 0;
       end record;
+  
    type T_settings is
       record
          timebank_max  : Integer;
          timebank_sup  : Integer;  --temps gagné par coup
          hands_per_lvl : Integer;
       end record;
+   
    type T_game is 
       record
          settings : T_settings;
-         history : T_history;
+         --history : T_history;
          round : Integer;
          
          pot : Integer;

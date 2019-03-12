@@ -231,9 +231,9 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   \\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\launcher.o
-   --   -L\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\
-   --   -L\\dataetu\Etudiants$\egreteab\Documents\Informatique\projet\obj\
+   --   Z:\Documents\Informatique 2\Projet\JeremyPlusPlus\obj\launcher.o
+   --   -LZ:\Documents\Informatique 2\Projet\JeremyPlusPlus\obj\
+   --   -LZ:\Documents\Informatique 2\Projet\JeremyPlusPlus\obj\
    --   -LC:/gnat/2017/lib/gcc/i686-pc-mingw32/6.3.1/adalib/
    --   -static
    --   -lgnat
