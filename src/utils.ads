@@ -53,8 +53,7 @@ package utils is
       end record;
    
    --Permet de comparer des combinaisons par superiorite selon les regles du poker 
-   function ">"(L : T_combination ; R : T_combination) return boolean;
-   
+   function ">"(L : T_combination ; R : T_combination) return boolean; 
    --Permet de sommer deux T_Set
    function "+"(L : T_set; R : T_set) return T_set;
 
