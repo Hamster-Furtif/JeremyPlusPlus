@@ -156,20 +156,217 @@ package body utils is
    begin
       emptySet(total);
       for i in 0..L.size-1 loop
-            addToSet(L.set(i), total);
+         addToSet(L.set(i), total);
       end loop;
-       for i in 0..R.size-1 loop
-            addToSet(R.set(i), total);
+      for i in 0..R.size-1 loop
+         addToSet(R.set(i), total);
       end loop;
       return total;
    end "+";
       
    procedure initGame(game : in out T_game) is
    begin
-      emptySet(game.history);
+      --emptySet(game.history);
       game.round := 0;
       emptySet(game.table);
       emptySet(game.hand);
    end initGame;
+   
+   function get_settings (game : in T_game) return T_settings is
+   begin
+      return game.settings;
+   end get_settings;
+
+   function get_round(game : in T_game) return Integer is
+   begin
+      return game.round;
+   end get_round;
+
+   function get_pot(game : in T_game) return Integer is
+   begin
+      return game.pot;
+   end get_pot;
+
+   function get_table(game : in T_game) return T_set is
+   begin
+      return game.table;
+   end get_table;
+
+   function get_hand(game : in T_game) return  T_set is
+   begin
+      return game.hand;
+   end get_hand;
+
+   function get_op_hand(game : in T_game) return T_set is
+   begin
+      return game.op_hand;
+   end get_op_hand;
+
+   function get_my_money(game : in T_game) return Integer is
+   begin
+      return game.my_money;
+   end get_my_money;
+
+   function get_op_money(game : in T_game) return Integer is
+   begin
+      return game.op_money;
+   end get_op_money;
+
+   function get_button_is_mine(game : in T_game) return Boolean is
+   begin
+      return game.button_is_mine;
+   end get_button_is_mine;
+
+   function get_small_blind(game : in T_game) return Integer is
+   begin
+      return game.small_blind;
+   end get_small_blind;
+
+   function get_big_blind(game : in T_game) return Integer is
+   begin
+      return game.big_blind;
+   end get_big_blind;
+
+   function get_amount_to_call(game : in T_game) return Integer is
+   begin
+      return game.amount_to_call;
+   end get_amount_to_call;
+
+   function get_min_bet(game : in T_game) return Integer is
+   begin
+      return game.min_bet;
+   end get_min_bet;
+
+
+   function get_settings(game : in T_game) return T_settings is
+   begin
+      return game.settings;
+   end get_settings;
+
+   procedure set_settings(game : in out T_game; val : in T_settings) is
+   begin
+      game.settings := val;
+   end set_settings;
+
+   function get_round(game : in T_game) return Integer is
+   begin
+      return game.round;
+   end get_round;
+
+   procedure set_round(game : in out T_game; val : in Integer) is
+   begin
+      game.round := val;
+   end set_round;
+
+   function get_pot(game : in T_game) return Integer is
+   begin
+      return game.pot;
+   end get_pot;
+
+   procedure set_pot(game : in out T_game; val : in Integer) is
+   begin
+      game.pot := val;
+   end set_pot;
+
+   function get_table(game : in T_game) return T_set is
+   begin
+      return game.table;
+   end get_table;
+
+   procedure set_table(game : in out T_game; val : in T_set) is
+   begin
+      game.table := val;
+   end set_table;
+
+   function get_hand(game : in T_game) return  T_set is
+   begin
+      return game.hand;
+   end get_hand;
+
+   procedure set_hand(game : in out T_game; val : in  T_set) is
+   begin
+      game.hand := val;
+   end set_hand;
+
+   function get_op_hand(game : in T_game) return T_set is
+   begin
+      return game.op_hand;
+   end get_op_hand;
+
+   procedure set_op_hand(game : in out T_game; val : in T_set) is
+   begin
+      game.op_hand := val;
+   end set_op_hand;
+
+   function get_my_money(game : in T_game) return Integer is
+   begin
+      return game.my_money;
+   end get_my_money;
+
+   procedure set_my_money(game : in out T_game; val : in Integer) is
+   begin
+      game.my_money := val;
+   end set_my_money;
+
+   function get_op_money(game : in T_game) return Integer is
+   begin
+      return game.op_money;
+   end get_op_money;
+
+   procedure set_op_money(game : in out T_game; val : in Integer) is
+   begin
+      game.op_money := val;
+   end set_op_money;
+
+   function get_button_is_mine(game : in T_game) return Boolean is
+   begin
+      return game.button_is_mine;
+   end get_button_is_mine;
+
+   procedure set_button_is_mine(game : in out T_game; val : in Boolean) is
+   begin
+      game.button_is_mine := val;
+   end set_button_is_mine;
+
+   function get_small_blind(game : in T_game) return Integer is
+   begin
+      return game.small_blind;
+   end get_small_blind;
+
+   procedure set_small_blind(game : in out T_game; val : in Integer) is
+   begin
+      game.small_blind := val;
+   end set_small_blind;
+
+   function get_big_blind(game : in T_game) return Integer is
+   begin
+      return game.big_blind;
+   end get_big_blind;
+
+   procedure set_big_blind(game : in out T_game; val : in Integer) is
+   begin
+      game.big_blind := val;
+   end set_big_blind;
+
+   function get_amount_to_call(game : in T_game) return Integer is
+   begin
+      return game.amount_to_call;
+   end get_amount_to_call;
+
+   procedure set_amount_to_call(game : in out T_game; val : in Integer) is
+   begin
+      game.amount_to_call := val;
+   end set_amount_to_call;
+
+   function get_min_bet(game : in T_game) return Integer is
+   begin
+      return game.min_bet;
+   end get_min_bet;
+
+   procedure set_min_bet(game : in out T_game; val : in Integer) is
+   begin
+      game.min_bet := val;
+   end set_min_bet;
+
    
 end utils;
