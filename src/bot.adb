@@ -1,9 +1,10 @@
-with ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO;
-use ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO;
+with ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO, opstrat;
+use ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO, opstrat;
 
 procedure bot is
 
    game : T_game;
+   logic : T_logic;
 
    MAX_LINE_LENGTH : constant integer := 100;
    line : string(1..MAX_LINE_LENGTH);
@@ -16,7 +17,6 @@ procedure bot is
    sample : T_Sample;
 
    winning_chances : Float;
-   E : float;
 
    bet : Integer;
 

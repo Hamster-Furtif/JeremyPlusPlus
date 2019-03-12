@@ -12,7 +12,7 @@ package body read_preflop is
          y := integer'Max(card1.rank,card2.rank);
       end if;
       put_line("x= " & integer'image(x) & " ; y= " & integer'image(y));
-      return float(getFromArray(Win_Array,x,y)) / 2097572400.0;
+      return float(getFromArray(WIN_ARRAY,x,y)) / 2097572400.0;
    end Get_Winning_Chance;
    
    Function Get_Losing_Chance (card1 : T_card; card2 : T_card) return Float is
@@ -26,7 +26,7 @@ package body read_preflop is
          y := integer'Max(card1.rank,card2.rank);
       end if;
       put_line("x= " & integer'image(x) & " ; y= " & integer'image(y));
-      return float(getFromArray(Lose_Array,x,y)) / 2097572400.0;
+      return float(getFromArray(LOSE_ARRAY,x,y)) / 2097572400.0;
    end Get_Losing_Chance;
                                     
     
@@ -41,7 +41,7 @@ package body read_preflop is
          y := integer'Max(card1.rank,card2.rank);
       end if;
       put_line("x= " & integer'image(x) & " ; y= " & integer'image(y));
-      return float(getFromArray(Tie_Array,x,y)) / 2097572400.0;
+      return float(getFromArray(TIE_ARRAY,x,y)) / 2097572400.0;
    end Get_Tie_Chance;
    
                                     

@@ -32,7 +32,7 @@ package body opstrat is
       
       --Si l'op a peu de chances de gagner, mais mise quand même, il bluff (r=1)
       --On diminue les chances linéairement de 0.5 à 0.75 jusqu'à atteindre 0, où la probabilité qu'il bluffe est estimée nulle
-      if(get_winning_chance(op_hand.set(0), op_hand.set(1)) < 0.5 and getBet(history, 0) > 0) then
+      if(Get_Winning_Chance(op_hand.set(0), op_hand.set(1)) < 0.5 and getBet(history, 0) > 0) then
          r := 1.0;
       elsif(Get_Winning_Chance(op_hand.set(0), op_hand.set(1)) < 0.75 and getBet(history, 0) > 0) then
          r := 3.0 - Get_Winning_Chance(op_hand.set(0), op_hand.set(1))*4.0;

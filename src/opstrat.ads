@@ -28,10 +28,12 @@ package opstrat is
    function get_has_logic(logic : T_logic) return Boolean;
    
    function get_winning_chances(logic : T_logic) return Float;
-   
+
    function get_nbr_of_bluff(logic : T_logic) return Float;
    function get_nbr_of_semi_bluff(logic : T_logic) return Float;
    function get_nbr_of_bluffed(logic : T_logic) return Float;
+   
+   
    
 private
    
