@@ -32,10 +32,10 @@ package body opstrat is
       
       --Si l'op a peu de chances de gagner, mais mise quand même, il bluff (r=1)
       --On diminue les chances linéairement de 0.5 à 0.75 jusqu'à atteindre 0, où la probabilité qu'il bluffe est estimée nulle
-      if(Get_Winning_Chance(op_hand.set(0), op_hand.set(1)) < 0.5 and getBet(history, 0) > 0) then
+      if(Get_Winning_Chance(get_card(op_hand, 0), get_card(op_hand, 1)) < 0.5 and getBet(history, 0) > 0) then
          r := 1.0;
-      elsif(Get_Winning_Chance(op_hand.set(0), op_hand.set(1)) < 0.75 and getBet(history, 0) > 0) then
-         r := 3.0 - Get_Winning_Chance(op_hand.set(0), op_hand.set(1))*4.0;
+      elsif(Get_Winning_Chance(get_card(op_hand, 0), get_card(op_hand, 1)) < 0.75 and getBet(history, 0) > 0) then
+         r := 3.0 - Get_Winning_Chance(get_card(op_hand, 0), get_card(op_hand, 1))*4.0;
       else
          r := 0.0;
       end if;
@@ -115,12 +115,12 @@ package body opstrat is
    end get_nbr_of_bluff;
    
    function get_nbr_of_semi_bluff(logic : T_logic) return Float is
-     begin
+   begin
       return logic.nbr_of_semi_bluff;
    end get_nbr_of_semi_bluff;
    
    function get_nbr_of_bluffed(logic : T_logic) return Float is
-     begin
+   begin
       return logic.nbr_of_bluffed;
    end get_nbr_of_bluffed;
    

@@ -318,6 +318,16 @@ package body utils is
    begin
       return set.size;
    end get_size;
+   
+   function get_card(set : in T_set; i : in Natural) return T_card is
+   begin
+      return set.set(i);
+   end get_card;
+   
+   procedure set_card(set : in out T_set; i : in Natural; card : in T_card) is
+   begin
+      set.set(i) := card;
+   end set_card;
 
    function get_rank(card : in T_card) return Integer is
    begin

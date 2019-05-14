@@ -65,6 +65,9 @@ package utils is
    procedure set_min_bet(game : in out T_game; val : in Integer);
    
    function get_size (set : in T_set) return Natural;
+   function get_card(set : in T_set; i : in Natural) return T_card;
+   procedure set_card(set : in out T_set; i : in Natural; card : in T_card);
+
    
    function get_rank(card : in T_card) return Integer;
    procedure set_rank(card : in out T_card; val : in Integer);
