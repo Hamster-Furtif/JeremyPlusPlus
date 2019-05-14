@@ -8,7 +8,7 @@ package opstrat is
    type T_history is private;
    type T_logic is private;
    
-   procedure add_T_action(h : in out T_history; move : in T_move; table : in T_set; bet : in Integer := -1);
+   procedure add_T_round(h : in out T_history; move : in T_move; table : in T_set; bet : in Integer := -1);
    
    function getMove(h : in T_history; i : in Integer) return T_move;
    function getBet(h : in T_history; i : in Integer) return Integer;

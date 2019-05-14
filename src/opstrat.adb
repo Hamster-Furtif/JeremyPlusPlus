@@ -115,29 +115,13 @@ package body opstrat is
    
    function get_expectation(logic : T_logic; game : T_game; history : T_history) return Float is
    begin
-      if can_get_bluffed(logic) then
-         null;
-         else
-         if can_bluff(logic) then
-            
-            null;
-         else
-         return Float(get_pot(game))*get_winning_chances(logic) - (1.0 - get_winning_chances(logic))*Float(get_amount_to_call(game));
-            end if;
-         end if;
-      
-      
-      
-      
-      
-      
-      return 0.0;
+   return Float(get_pot(game))*get_winning_chances(logic) - (1.0 - get_winning_chances(logic))*Float(get_amount_to_call(game));
    end get_expectation;
    
-   function create_roundmove : T_move; bet : Integer) return T_round is
+   function create_round(move : T_move; bet : Integer) return T_round is
       round : T_round;
    begin
-      round := move;
+      round.move := move;
       round.bet := bet;
       return round;
    end create_round;
