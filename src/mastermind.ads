@@ -14,10 +14,20 @@ package Mastermind is
    function strat(logic : in T_logic; game : in T_game; history : in T_history) return T_round;
 
    function min(a : in float; b : in float) return float;
-   function min(a : in integer; b : in integer) return float;       
+   function min(a : in integer; b : in integer) return float; 
+   function ValAbs(a : float) return float;
+   --surcharges
    function "*"(a : in integer; b : in float) return float;
    function "*"(a : in float; b : in integer) return float;
    
+   function "/"(a : in integer; b : in float) return float;
+   function "/"(a : in float; b : in integer) return float;
+   
+   function "<"(a : in integer; b : in float) return Boolean;
+   function "<"(a : in float; b : in integer) return Boolean;
+   
+   function ">"(a : in integer; b : in float) return Boolean;
+   function ">"(a : in float; b : in integer) return Boolean;
 Private
    --Constantes des seuils de winning chances
  
@@ -35,8 +45,8 @@ Private
    INT_LOW : constant float := 0.05;
    
    --Comparaison esperance gain et propre stack
-   ESP_SMALL : constant float := 0.1;
-   ESP_BIG : constant float :=0.5;
+   SMALL_ESP : constant float := 0.1;
+   BIG_ESP : constant float :=0.5;
      
    
    --Taux de bluff de l'adversaire dans la partie
