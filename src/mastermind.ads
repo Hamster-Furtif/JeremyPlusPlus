@@ -11,12 +11,13 @@ package Mastermind is
    --/Nécessite : tous les numeriques du t_logic >=0
    --/S : string
    -- Entraine : donne le message a retouner au moteur
-   function strat(logic : in T_logic, game : in T_game, history : in T_history) return string;
+   function strat(logic : in T_logic; game : in T_game; history : in T_history) return T_round;
 
-   function min(a : in float, b : in float) return float;
-   function min(a : in integer, b : in integer) return float;       
-   function percent_bluff(a : in float, b : in integer) return float;
-
+   function min(a : in float; b : in float) return float;
+   function min(a : in integer; b : in integer) return float;       
+   function "*"(a : in integer; b : in float) return float;
+   function "*"(a : in float; b : in integer) return float;
+   
 Private
    --Constantes des seuils de winning chances
  
@@ -32,7 +33,7 @@ Private
    --Pourcentage de raise pour adversaire intelligent
    INT_HIGH : constant float := 0.15;
    INT_LOW : constant float := 0.05;
-     
+   
    --Comparaison esperance gain et propre stack
    ESP_SMALL : constant float := 0.1;
    ESP_BIG : constant float :=0.5;
