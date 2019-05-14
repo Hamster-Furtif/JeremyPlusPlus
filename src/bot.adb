@@ -19,7 +19,6 @@ procedure bot is
    winning_chances : Float;
 
    bet : Integer;
-   empty_game : T_set;
 begin
 
    initGame(game);
@@ -49,7 +48,7 @@ begin
          if (winning_chances >= 0.8) then
             bet := Integer'Max(Integer'Min(100 + Integer(winning_chances*Float(100)), get_op_money(game)), get_min_bet(game));
             put_line("bet" & Integer'Image(bet));
-         elsif(winning_chances >= 0.5 or ( winning_chances >= 0.0 and get_table(game).size=0)) then --Attention .size impossible à utiliser (accesseur supplémentaire à définir)
+         elsif(winning_chances >= 0.5 or ( winning_chances >= 0.0 and get_size(get_table(game))=0)) then --Attention .size impossible à utiliser (accesseur supplémentaire à définir)
             put_Line("call");
          else
             Put_Line("check");

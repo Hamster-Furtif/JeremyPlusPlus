@@ -30,14 +30,16 @@ package body botIO is
    
    
    procedure readSettings(command : T_command; game : in out T_game) is
+      settings_replaced : T_settings := get_settings(game);
    begin
       if To_String(command.pars(1)) = "hand_per_level" then
-         game.settings.hands_per_lvl := Integer'Value(To_String(command.pars(2)));
+         set_hands_per_lvl(settings_replaced,Integer'Value(To_String(command.pars(2))));
       elsif To_String(command.pars(1)) = "timebank" then
-         game.settings.timebank_max := Integer'Value(To_String(command.pars(2)));
+         set_timebank_max(settings_replaced,Integer'Value(To_String(command.pars(2))));
       elsif To_String(command.pars(1)) = "time_per_move" then
-         game.settings.timebank_sup := Integer'Value(To_String(command.pars(2)));
+         set_timebank_sup(settings_replaced,Integer'Value(To_String(command.pars(2))));
       end if;
+      set_settings(game,settings_replaced);
    end readSettings;
    
    procedure readUpdateGame(command : T_command; game :  in out  T_game) is
@@ -66,76 +68,75 @@ package body botIO is
    end readUpdateGame;
    
    procedure readUpdateHand(command : T_command; game :  in out T_game; sample : in out T_Sample) is
+      hand_replaced    : T_set    := get_hand(game);
+      op_hand_replaced : T_set    := get_op_hand(game);
+      table_replaced   : T_set    := get_table(game);
    begin
       
       if(To_String(command.pars(1)) = "hand") then
          if(To_String(command.pars(2)) = "self") then
-            emptySet(get_hand(game));
-            addToSet(parseCard(To_String(command.pars(3))), get_hand(game));
-            addToSet(parseCard(To_String(command.pars(4))), get_hand(game));
+            emptySet(hand_replaced);
+            addToSet(parseCard(To_String(command.pars(3))), hand_replaced);
+            addToSet(parseCard(To_String(command.pars(4))), hand_replaced);
          else
-            emptySet(get_op_hand(game));
-            addToSet(parseCard(To_String(command.pars(3))), get_op_hand(game));
-            addToSet(parseCard(To_String(command.pars(4))), get_op_hand(game));
+            emptySet(op_hand_replaced);
+            addToSet(parseCard(To_String(command.pars(3))), op_hand_replaced);
+            addToSet(parseCard(To_String(command.pars(4))), op_hand_replaced);
          end if;
          
       elsif(To_String(command.pars(1)) = "table") then
-         emptySet(get_table(game));
-         initSample(sample, get_hand(game));
+         emptySet(table_replaced);
+         initSample(sample, table_replaced);
          for i in 2..(command.size-1) loop        
-            addToSet(parseCard(To_String(command.pars(i))), get_table(game));
+            addToSet(parseCard(To_String(command.pars(i))), table_replaced);
             addToSampleSets(sample, parseCard(To_String(command.pars(i))));
          end loop;
 
       elsif(To_String(command.pars(1)) = "pot") then
-         game.pot := Integer'Value(To_String(command.pars(2)));
+         set_pot(game,Integer'Value(To_String(command.pars(2))));
 
       elsif(To_String(command.pars(1)) = "amount_to_call") then
-         game.amount_to_call := Integer'Value(To_String(command.pars(2)));
+         set_amount_to_call(game,Integer'Value(To_String(command.pars(2))));
 
       elsif(To_String(command.pars(1)) = "min_bet") then
-         game.min_bet := Integer'Value(To_String(command.pars(2)));
+         set_min_bet(game,Integer'Value(To_String(command.pars(2))));
 
       elsif (To_String(command.pars(1)) = "move") then
-         game.last_op_move := T_move'Value(To_String(command.pars(3)));
+         null;
          
          if(To_String(command.pars(2)) = "other" ) then
             if (To_String(command.pars(3)) = "bet") then
-               get_op_money(game) := get_op_money(game) - Integer'Value(To_String(command.pars(4)));
-               add_T_action(game.history, Move'Value("bet"), Integer'Value(To_String(command.pars(4))));
+               set_op_money(game, get_op_money(game) - Integer'Value(To_String(command.pars(4))));
             else
-               add_T_action(game.history, Move'Value(command.pars(3)));
+               null;
             end if;
 
          end if;
          
       elsif (To_String(command.pars(1)) = "win") then
                   
-         if (get_op_hand(game).size > 0) then
-            if (opIsBluffing(get_op_hand(game), game.history) > 0) then
-               
-               null;
+         if (get_size(get_op_hand(game)) > 0) then
+            null;
             end if;
          end if;
          
-         emptySet(get_hand(game));
-         emtpySet(get_op_hand(game));
-         emptySet(get_table(game));
+         emptySet(hand_replaced);
+         emptySet(op_hand_replaced);
+         emptySet(table_replaced);
          
          if(To_String(command.pars(2)) = "other") then
-            get_op_money(game) := get_op_money(game) + Integer'Value(To_String(command.pars(3)));
+            set_op_money(game, get_op_money(game) + Integer'Value(To_String(command.pars(3))));
          else
-            get_op_money(game) := get_op_money(game) + Integer'Value(To_String(command.pars(3)));
+            set_my_money(game, get_my_money(game) + Integer'Value(To_String(command.pars(3))));
          end if;
-      end if;
    end readUpdateHand;
    
    procedure printCard(card : in T_card) is
    begin
       Put_Line(Standard_Error, "");
-      Put(Standard_Error, card.rank+2);
+      Put(Standard_Error, get_rank(card)+2);
       Put(Standard_Error, "  of ");
-      Put(Standard_Error, (T_colour'Image(card.colour)));
+      Put(Standard_Error, (T_colour'Image(get_colour(card))));
       Put_Line(Standard_Error, "");
    end printCard;
    
@@ -145,16 +146,16 @@ package body botIO is
    begin
       for i in 1..values'Length loop
          if values(i) = str(str'First) then
-            card.rank := i-1;
+            set_rank(card,i-1);
          end if;
       end loop;
       
       case str(str'First + 1) is
-      when 'c' => card.colour := T_colour'Value("clovers");
-      when 's' => card.colour := T_colour'Value("spades");
-      when 'h' => card.colour := T_colour'Value("hearts");
-      when 'd' => card.colour := T_colour'Value("diamonds");
-      when others => card.colour := T_colour'Value("empty");
+      when 'c' => set_colour(card, T_colour'Value("clovers"));
+      when 's' => set_colour(card, T_colour'Value("spades"));
+      when 'h' => set_colour(card, T_colour'Value("hearts"));
+      when 'd' => set_colour(card, T_colour'Value("diamonds"));
+      when others => set_colour(card, T_colour'Value("empty"));
       end case;
    
       return card;
