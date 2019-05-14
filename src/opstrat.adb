@@ -1,16 +1,16 @@
 package body opstrat is
   
-   procedure add_T_action(h : in out T_history; move : in T_move; table : in T_set; bet : in Integer := -1) is
+   procedure add_T_round(h : in out T_history; move : in T_move; table : in T_set; bet : in Integer := -1) is
    begin
-      h.list(h.size).move := move;
-      h.list(h.size).bet := bet;
+      h.rounds(h.size).move := move;
+      h.rounds(h.size).bet := bet;
       h.size := h.size + 1;
-   end add_T_action;
+   end add_T_round;
    
    function getMove(h : in T_history; i : in Integer) return T_move is
    begin
       if (i < h.size) then
-         return h.list(i).move;
+         return h.rounds(i).move;
       else
          return none;
       end if;
@@ -18,7 +18,7 @@ package body opstrat is
       
    function getBet(h : in T_history; i : in Integer) return Integer is
    begin
-      return h.list(i).bet;
+      return h.rounds(i).bet;
    end getBet;
    
    function getSize(h : in T_history) return Integer is
@@ -68,41 +68,30 @@ package body opstrat is
          end if;
    end add_bluffed;
    
-   procedure add_chances(logic : in out T_logic; chances : in Float) is
-   begin
-      logic.list_size := logic.list_size + 1;
-      logic.chances_taken(logic.list_size) := chances;
-   end add_chances;
-   
    function get_avg_chances(logic : T_logic) return Float is
    begin
       return logic.avg_chances_taken;
    end get_avg_chances;
    
-   function get_min_chances(logic : T_logic) return Float is
-   begin
-      return logic.min_chances_taken;
-   end get_min_chances;
-   
-   function get_can_bluff(logic : T_logic) return Boolean is
+   function can_bluff(logic : T_logic) return Boolean is
    begin
       return logic.can_bluff;
-   end get_can_bluff;
+   end can_bluff;
    
-   function get_can_semi_bluff(logic : T_logic) return Boolean is
+   function can_semi_bluff(logic : T_logic) return Boolean is
    begin
       return logic.can_semi_bluff;
-   end get_can_semi_bluff;
+   end can_semi_bluff;
    
-   function get_can_get_bluffed(logic : T_logic) return Boolean is
+   function can_get_bluffed(logic : T_logic) return Boolean is
    begin
       return logic.can_get_bluffed;
-   end get_can_get_bluffed;
+   end can_get_bluffed;
    
-   function get_has_logic(logic : T_logic) return Boolean is
+   function has_logic(logic : T_logic) return Boolean is
    begin
       return logic.has_logic;
-   end get_has_logic;
+   end has_logic;
    
    function get_winning_chances(logic : T_logic) return Float is
    begin
@@ -123,5 +112,35 @@ package body opstrat is
    begin
       return logic.nbr_of_bluffed;
    end get_nbr_of_bluffed;
+   
+   function get_expectation(logic : T_logic; game : T_game; history : T_history) return Float is
+   begin
+      if can_get_bluffed(logic) then
+         null;
+         else
+         if can_bluff(logic) then
+            
+            null;
+         else
+         return Float(get_pot(game))*get_winning_chances(logic) - (1.0 - get_winning_chances(logic))*Float(get_amount_to_call(game));
+            end if;
+         end if;
+      
+      
+      
+      
+      
+      
+      return 0.0;
+   end get_expectation;
+   
+   function create_roundmove : T_move; bet : Integer) return T_round is
+      round : T_round;
+   begin
+      round := move;
+      round.bet := bet;
+      return round;
+   end create_round;
+
    
 end opstrat;
