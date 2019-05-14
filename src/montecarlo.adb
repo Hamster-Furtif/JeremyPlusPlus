@@ -26,15 +26,15 @@ package body montecarlo is
       card : T_card;
    begin
       nb := Rand_Int.Random(gen) mod max;
-      card.rank := nb mod 13;
-      card.colour := T_colour'Val(1+(nb -  nb mod 13)/13);
+      set_rank(card, nb mod 13);
+      set_colour(card, T_colour'Val(1+(nb -  nb mod 13)/13));
       return card;
    end randomCard;
    
    function cardInSet(card : in T_card; set : in T_set) return Boolean is
    begin
-      for i in 0..set.size-1 loop
-         if set.set(i) = card then return True; end if;
+      for i in 0..get_size(set)-1 loop
+         if get_card(set, i) = card then return True; end if;
       end loop;
       return false;
    end cardInSet;
