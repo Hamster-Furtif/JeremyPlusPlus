@@ -19,7 +19,7 @@ procedure bot is
    winning_chances : Float;
 
    bet : Integer;
-
+   empty_game : T_set;
 begin
 
    initGame(game);
@@ -41,15 +41,15 @@ begin
       when update_hand => readUpdateHand(last_command, game, sample);
 
       when action =>
-         best_combinaison := getBestCombination(game.hand+game.table);
+         best_combinaison := getBestCombination(get_hand(game)+get_table(game));
          winning_chances := chancesOfWinning(sample, best_combinaison);
 
 
 
          if (winning_chances >= 0.8) then
-            bet := Integer'Max(Integer'Min(100 + Integer(winning_chances*Float(100)), game.op_money), game.min_bet);
+            bet := Integer'Max(Integer'Min(100 + Integer(winning_chances*Float(100)), get_op_money(game)), get_min_bet(game));
             put_line("bet" & Integer'Image(bet));
-         elsif(winning_chances >= 0.5 or ( winning_chances >= 0.0 and game.table.size = 0)) then
+         elsif(winning_chances >= 0.5 or ( winning_chances >= 0.0 and get_table(game).size=0)) then --Attention .size impossible à utiliser (accesseur supplémentaire à définir)
             put_Line("call");
          else
             Put_Line("check");

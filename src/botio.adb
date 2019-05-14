@@ -43,24 +43,24 @@ package body botIO is
    procedure readUpdateGame(command : T_command; game :  in out  T_game) is
    begin
       if(To_String(command.pars(1)) = "hand") then
-         game.round := Integer'Value(To_String(command.pars(2)));
+         set_round(game,Integer'Value(To_String(command.pars(2))));
 
       elsif (To_String(command.pars(1)) = "stack") then
          if(command.pars(2) = "self") then
-            game.my_money := Integer'Value(To_String(command.pars(3)));
+            set_my_money(game,Integer'Value(To_String(command.pars(3))));
          else
-            game.op_money := Integer'Value(To_String(command.pars(3)));
+            set_op_money(game,Integer'Value(To_String(command.pars(3))));
          end if;
 
       elsif (To_String(command.pars(1)) = "button") then
-         game.button_is_mine := command.pars(2) = "self";
-         game.round := game.round + 1;
+         set_button_is_mine(game, command.pars(2) = "self");
+         set_round(game, get_round(game)+ 1);
 
       elsif (To_String(command.pars(1)) = "small_blind") then
-         game.small_blind := Integer'value(To_String(command.pars(2)));
+         set_small_blind(game,Integer'value(To_String(command.pars(2))));
 
       elsif (To_String(command.pars(1)) = "big_blind") then
-         game.big_blind := Integer'value(To_String(command.pars(2)));
+         set_big_blind(game,Integer'value(To_String(command.pars(2))));
       end if;
 
    end readUpdateGame;
@@ -70,20 +70,20 @@ package body botIO is
       
       if(To_String(command.pars(1)) = "hand") then
          if(To_String(command.pars(2)) = "self") then
-            emptySet(game.hand);
-            addToSet(parseCard(To_String(command.pars(3))), game.hand);
-            addToSet(parseCard(To_String(command.pars(4))), game.hand);
+            emptySet(get_hand(game));
+            addToSet(parseCard(To_String(command.pars(3))), get_hand(game));
+            addToSet(parseCard(To_String(command.pars(4))), get_hand(game));
          else
-            emptySet(game.op_hand);
-            addToSet(parseCard(To_String(command.pars(3))), game.op_hand);
-            addToSet(parseCard(To_String(command.pars(4))), game.op_hand);
+            emptySet(get_op_hand(game));
+            addToSet(parseCard(To_String(command.pars(3))), get_op_hand(game));
+            addToSet(parseCard(To_String(command.pars(4))), get_op_hand(game));
          end if;
          
       elsif(To_String(command.pars(1)) = "table") then
-         emptySet(game.table);
-         initSample(sample, game.hand);
+         emptySet(get_table(game));
+         initSample(sample, get_hand(game));
          for i in 2..(command.size-1) loop        
-            addToSet(parseCard(To_String(command.pars(i))), game.table);
+            addToSet(parseCard(To_String(command.pars(i))), get_table(game));
             addToSampleSets(sample, parseCard(To_String(command.pars(i))));
          end loop;
 
@@ -101,7 +101,7 @@ package body botIO is
          
          if(To_String(command.pars(2)) = "other" ) then
             if (To_String(command.pars(3)) = "bet") then
-               game.op_money := game.op_money - Integer'Value(To_String(command.pars(4)));
+               get_op_money(game) := get_op_money(game) - Integer'Value(To_String(command.pars(4)));
                add_T_action(game.history, Move'Value("bet"), Integer'Value(To_String(command.pars(4))));
             else
                add_T_action(game.history, Move'Value(command.pars(3)));
@@ -111,20 +111,21 @@ package body botIO is
          
       elsif (To_String(command.pars(1)) = "win") then
                   
-         if(game.op_hand.size > 0) then
-            if(opIsBluffing(game.op_hand, game.history) > 0) then
+         if (get_op_hand(game).size > 0) then
+            if (opIsBluffing(get_op_hand(game), game.history) > 0) then
                
+               null;
             end if;
          end if;
          
-         emptySet(game.hand);
-         emtpySet(game.op_hand);
-         emptySet(game.table);
+         emptySet(get_hand(game));
+         emtpySet(get_op_hand(game));
+         emptySet(get_table(game));
          
          if(To_String(command.pars(2)) = "other") then
-            game.op_money := game.op_money + Integer'Value(To_String(command.pars(3)));
+            get_op_money(game) := get_op_money(game) + Integer'Value(To_String(command.pars(3)));
          else
-            game.op_money := game.op_money + Integer'Value(To_String(command.pars(3)));
+            get_op_money(game) := get_op_money(game) + Integer'Value(To_String(command.pars(3)));
          end if;
       end if;
    end readUpdateHand;
