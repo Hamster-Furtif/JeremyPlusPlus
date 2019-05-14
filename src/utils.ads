@@ -12,6 +12,7 @@ package utils is
    type T_card is private;
    type T_set is private;
    type T_game is private;
+   type T_settings is private;
    
       --Permet de comparer des combinaisons par superiorite selon les regles du poker 
    function ">"(L : T_combination ; R : T_combination) return boolean; 
@@ -36,7 +37,7 @@ package utils is
    
    
    --Accesseurs generes en python
-   function get_settings(game : in T_game) return T_settings;
+   function get_settings (game : in T_game) return T_settings;
    procedure set_settings(game : in out T_game; val : in T_settings);
    function get_round(game : in T_game) return Integer;
    procedure set_round(game : in out T_game; val : in Integer);
@@ -62,6 +63,20 @@ package utils is
    procedure set_amount_to_call(game : in out T_game; val : in Integer);
    function get_min_bet(game : in T_game) return Integer;
    procedure set_min_bet(game : in out T_game; val : in Integer);
+   
+   function get_size (set : in T_set) return Natural;
+   
+   function get_rank(card : in T_card) return Integer;
+   procedure set_rank(card : in out T_card; val : in Integer);
+   function get_colour(card : in T_card) return T_colour;
+   procedure set_colour(card : in out T_card; val : in T_colour);
+   
+   function get_timebank_max (settings : in T_settings) return Integer;
+   procedure set_timebank_max (settings : in out T_settings; val : in Integer);
+   function get_timebank_sup (settings : in T_settings) return Integer;
+   procedure set_timebank_sup (settings : in out T_settings; val : in Integer);
+   function get_hands_per_lvl(settings : in T_settings) return Integer;
+   procedure set_hands_per_lvl(settings : in out T_settings; val : in Integer);
 
 private
    
