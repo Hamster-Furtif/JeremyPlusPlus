@@ -31,10 +31,13 @@ Private
    
    --Pourcentage de raise pour adversaire intelligent
    INT_HIGH : constant float := 0.15;
+   INT_LOW : constant float := 0.05;
+     
+   --Comparaison esperance gain et propre stack
+   ESP_SMALL : constant float := 0.1;
+   ESP_BIG : constant float :=0.5;
      
    
-   
-   
-   PERCENT_BLUFF : constant float := 0.20;
-   EQUIVALENT : constant float := 0.50;  --comparaison stack esperance
+   --Taux de bluff de l'adversaire dans la partie
+   PERCENT_BLUFF : constant float := 0.15;
 end Mastermind;
