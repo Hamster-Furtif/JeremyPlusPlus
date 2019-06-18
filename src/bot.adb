@@ -65,8 +65,8 @@ begin
 
          end if;
 
-         put_line( ToString(message));
-
+         put_line(ToString(message));
+end case;
    end loop;
 
 end;

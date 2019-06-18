@@ -41,7 +41,7 @@ package opstrat is
    -- S/ esp     Float
    -- Entraine esp l'estimation de l'esperance de gain de la main en cours, avec les probabilites de bluff de l'adversaire
    function get_expectation(logic : T_logic; game : T_game; history : T_history) return Float;
-   procedure update_logic(logic :in out T_logic);
+   procedure update_logic(logic:in out T_logic);
    
    
 private
@@ -52,14 +52,6 @@ private
       table : T_set;
       op_hand : T_set;
       bet : Integer := -1;
-   end record;
-   
-   type T_round_list is array(0..50) of T_round;
-  
-   -- Correspond aux listes des actions
-   type T_history is record
-      rounds  : T_round_list;
-      size    : Integer;
    end record;
 
    type T_logic is record
