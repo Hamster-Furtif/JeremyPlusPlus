@@ -1,10 +1,12 @@
-with ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO, opstrat;
-use ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO, opstrat;
+with ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO, opstrat, Mastermind;
+use ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO, opstrat, Mastermind;
 
 procedure bot is
 
    game : T_game;
    logic : T_logic;
+   history : T_history;
+   message : T_round;
 
    MAX_LINE_LENGTH : constant integer := 100;
    line : string(1..MAX_LINE_LENGTH);
@@ -18,13 +20,16 @@ procedure bot is
 
    winning_chances : Float;
 
+   NbBluffInit : Constant integer :=3;
+   CompteurBluffInit : Integer :=0;
+
+
    bet : Integer;
 begin
 
    initGame(game);
 
    while not End_Of_File loop
-
       get_line(line, line_length);
 
       last_command := splitLine(line, line_length);
@@ -43,19 +48,25 @@ begin
          best_combinaison := getBestCombination(get_hand(game)+get_table(game));
          winning_chances := chancesOfWinning(sample, best_combinaison);
 
+         if CompteurBluffInit<NbBluffInit then --On veut initialiser notre strategie en bluffant au moins 3 fois (initialisation des booleens nous informant sur le bluff)
+            if (winning_chances >= LOW) then
+               message := strat(logic, game, history);
+            else
+               if get_my_money(game) > get_op_money(game) then
+                  message := create_round(bet,Integer'image(IDIOT_OP*get_op_money(game)));
+               else
+                  message:= create_round(bet, integer'image(IDIOT_OWN*get_my_money(game)));
+               end if;
+               CompteurBluffInit := CompteurBluffInit +1;
+            end if;
 
-
-         if (winning_chances >= 0.8) then
-            bet := Integer'Max(Integer'Min(100 + Integer(winning_chances*Float(100)), get_op_money(game)), get_min_bet(game));
-            put_line("bet" & Integer'Image(bet));
-         elsif(winning_chances >= 0.5 or ( winning_chances >= 0.0 and get_size(get_table(game))=0)) then --Attention .size impossible à utiliser (accesseur supplémentaire à définir)
-            put_Line("call");
          else
-            Put_Line("check");
+            message := strat(logic, game, history);
+
          end if;
 
-      when others => put_line("fold");
-      end case;
+         put_line( ToString(message));
+
    end loop;
 
 end;
