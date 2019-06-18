@@ -4,22 +4,14 @@ use utils, read_preflop;
 package opstrat is
 
    type T_round is private;
-   type T_round_list is private;
-   type T_history is private;
    type T_logic is private;
    
-   procedure add_T_round(h : in out T_history; move : in T_move; table : in T_set; bet : in Integer := -1);
    
-   function getMove(h : in T_history; i : in Integer) return T_move;
-   function getBet(h : in T_history; i : in Integer) return Integer;
-   function getSize(h : in T_history) return Integer;
-   function opIsBluffing(op_hand : in T_set; history : in T_history) return float;
+   function opIsBluffing(op_hand : in T_set) return float;
    
    procedure add_bluff(logic : in out T_logic; r : in Float);
    procedure add_semi_bluff(logic : in out T_logic; r : in Float);
    procedure add_bluffed(logic : in out T_logic; r : in Float);
-   
-   function get_avg_chances(logic : T_logic) return Float;
    
    function can_bluff(logic : T_logic) return Boolean;
    function can_semi_bluff(logic : T_logic) return Boolean;
@@ -40,8 +32,7 @@ package opstrat is
    -- E/ history T_history
    -- S/ esp     Float
    -- Entraine esp l'estimation de l'esperance de gain de la main en cours, avec les probabilites de bluff de l'adversaire
-   function get_expectation(logic : T_logic; game : T_game; history : T_history) return Float;
-   procedure update_logic(logic:in out T_logic);
+   function get_expectation(logic : T_logic; game : T_game) return Float;
    
    
 private

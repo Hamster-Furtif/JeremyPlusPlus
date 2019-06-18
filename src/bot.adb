@@ -5,7 +5,6 @@ procedure bot is
 
    game : T_game;
    logic : T_logic;
-   history : T_history;
    message : T_round;
 
    MAX_LINE_LENGTH : constant integer := 100;
@@ -48,20 +47,20 @@ begin
          best_combinaison := getBestCombination(get_hand(game)+get_table(game));
          winning_chances := chancesOfWinning(sample, best_combinaison);
 
-         if CompteurBluffInit<NbBluffInit then --On veut initialiser notre strategie en bluffant au moins 3 fois (initialisation des booleens nous informant sur le bluff)
+         if CompteurBluffInit<NbBluffInit then
             if (winning_chances >= LOW) then
-               message := strat(logic, game, history);
+               message := strat(logic, game);
             else
                if get_my_money(game) > get_op_money(game) then
-                  message := create_round(bet,Integer'image(IDIOT_OP*get_op_money(game)));
+                  message := create_round(T_move'Value("bet"),Integer(IDIOT_OP*get_op_money(game)));
                else
-                  message:= create_round(bet, integer'image(IDIOT_OWN*get_my_money(game)));
+                  message:= create_round(T_move'Value("bet"), Integer(IDIOT_OWN*get_my_money(game)));
                end if;
                CompteurBluffInit := CompteurBluffInit +1;
             end if;
 
          else
-            message := strat(logic, game, history);
+            message := strat(logic, game);
 
          end if;
 

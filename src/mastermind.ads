@@ -11,7 +11,7 @@ package Mastermind is
    --/Nécessite : tous les numeriques du t_logic >=0
    --/S : string
    -- Entraine : donne le message a retouner au moteur
-   function strat(logic : in T_logic; game : in T_game; history : in T_history) return T_round;
+   function strat(logic : in T_logic; game : in T_game) return T_round;
    
    
    --surcharges
@@ -26,7 +26,7 @@ package Mastermind is
    
    function ">"(a : in integer; b : in float) return Boolean;
    function ">"(a : in float; b : in integer) return Boolean;
-Private
+
    --Constantes des seuils de winning chances
  
    HIGH : constant Float := 0.9;
@@ -49,7 +49,7 @@ Private
    
    --Taux de bluff de l'adversaire dans la partie
    PERCENT_BLUFF : constant float := 0.15;
-   
+   Private
    function bluff(game : in T_game) return T_round;
 
 end Mastermind;
