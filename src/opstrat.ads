@@ -33,7 +33,7 @@ package opstrat is
    function get_nbr_of_bluffed(logic : T_logic) return Float;
    
    function create_round(move : T_move; bet : Integer) return T_round;
-   
+   function toString(round: T_round) return String; -- A FAIRE ATTENTION IMPORTANT
    
    -- E/ logic   T_logic
    -- E/ game    T_game
@@ -41,7 +41,7 @@ package opstrat is
    -- S/ esp     Float
    -- Entraine esp l'estimation de l'esperance de gain de la main en cours, avec les probabilites de bluff de l'adversaire
    function get_expectation(logic : T_logic; game : T_game; history : T_history) return Float;
-   
+   procedure update_logic(logic :in out T_logic);
    
    
 private
@@ -72,8 +72,14 @@ private
       nbr_of_semi_bluff : Float := 0.0;
       nbr_of_bluffed    : Float := 0.0;
       
+      bluff_possibilities : Float := 0.0;
+      semi_bluff_possibilities : Float := 0.0;
+      bluffed_possibilities : Float := 0.0;
+     
+      p_bluff : Float := 0.0;
+      p_bluffed : Float := 0.0;
+      p_semi_bluffed : Float := 0.0;
       winning_chances   : Float := 0.0;
-      avg_chances_taken : Float := 0.0;
       esp_gain          : Float := 0.0;
       
       end record;
