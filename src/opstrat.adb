@@ -117,7 +117,7 @@ package body opstrat is
       e : Float := 0.0;
       eb : Float := Float(get_pot(game) - get_min_bet(game));
       ob : Float := Float(get_min_bet(game));
-      P_we_bluff : Float := 0.2;
+      P_we_bluff : Float := 0.2; -- valeur arbitraire. On estime qu'on bluffe 20% du temps ...
       P_bluffed : Float := logic.nbr_of_bluffed / logic.bluffed_possibilities;
       P_bluff : Float := logic.nbr_of_bluff / logic.bluff_possibilities;
       win_chances : Float := logic.winning_chances;
@@ -136,11 +136,13 @@ package body opstrat is
       return round;
    end create_round;
    
-   function toString(round: T_round) return String is -- A FAIRE IMPORTANT
-      s : String(1..50);
+   function toString(round: T_round) return String is
    begin
-      s := "ATTENTION FONCTION A FINIR";
-      return s;
-      end toString;
+      if(round.bet = -1) then
+         return round.move'Img;
+      else
+         return round.move'Img & " " & round.bet'Img;
+      end if;
+   end toString;
    
 end opstrat;
