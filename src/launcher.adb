@@ -46,6 +46,3 @@ begin
       Put_Line("Engine execution failed: please check your configuration.");
    end if;
 end Launcher;
-
-
--- LE BOT CRASH LORSQU'UNE CARTE EST PRESENTEE AU PREMIER TOUR ...

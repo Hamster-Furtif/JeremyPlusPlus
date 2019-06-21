@@ -94,6 +94,7 @@ package body botIO is
 
       elsif(To_String(command.pars(1)) = "pot") then
          set_pot(game,Integer'Value(To_String(command.pars(2))));
+         
 
       elsif(To_String(command.pars(1)) = "amount_to_call") then
          set_amount_to_call(game,Integer'Value(To_String(command.pars(2))));

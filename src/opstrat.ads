@@ -25,7 +25,8 @@ package opstrat is
    function get_nbr_of_bluffed(logic : T_logic) return Float;
    
    function create_round(move : T_move; bet : Integer) return T_round;
-   function toString(round: T_round) return String; -- A FAIRE ATTENTION IMPORTANT
+   function toString(round: T_round) return String;
+   procedure set_winning_chances(logic : in out T_logic;chances : Float);
    
    -- E/ logic   T_logic
    -- E/ game    T_game

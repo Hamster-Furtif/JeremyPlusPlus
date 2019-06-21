@@ -1,3 +1,6 @@
+with Ada.Characters.Handling,Ada.Text_IO;
+use Ada.Characters.Handling,Ada.Text_IO;
+
 package body opstrat is
   
    
@@ -64,10 +67,16 @@ package body opstrat is
       return logic.has_logic;
    end has_logic;
    
+   
    function get_winning_chances(logic : T_logic) return Float is
    begin
       return logic.winning_chances;
    end get_winning_chances;
+   procedure set_winning_chances(logic : in out T_logic;chances : Float) is
+   begin
+      logic.winning_chances := chances;
+   end set_winning_chances;
+   
    
    function get_nbr_of_bluff(logic : T_logic) return Float is
    begin
@@ -110,9 +119,9 @@ package body opstrat is
    function toString(round: T_round) return String is
    begin
       if(round.bet = -1) then
-         return round.move'Img;
+         return To_Lower(round.move'Img);
       else
-         return round.move'Img & " " & round.bet'Img;
+         return To_Lower(round.move'Img &round.bet'Img);
       end if;
    end toString;
    

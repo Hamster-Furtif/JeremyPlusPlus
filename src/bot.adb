@@ -1,5 +1,5 @@
-with ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO, opstrat, Mastermind;
-use ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO, opstrat, Mastermind;
+with ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO, opstrat, Mastermind, Ada.Characters.Handling;
+use ada.text_io, ada.Float_Text_IO, ada.Integer_Text_IO, utils, ada.Strings.Unbounded, montecarlo, botIO, opstrat, Mastermind, Ada.Characters.Handling;
 
 procedure bot is
 
@@ -44,6 +44,7 @@ begin
       when action =>
          best_combinaison := getBestCombination(get_hand(game)+get_table(game));
          winning_chances := chancesOfWinning(sample, best_combinaison);
+         set_winning_chances(logic, winning_chances);
 
          if CompteurBluffInit<NbBluffInit then --On veut initialiser notre strategie en bluffant au moins 3 fois (initialisation des booleens nous informant sur le bluff)
             if (winning_chances >= LOW) then
@@ -61,7 +62,7 @@ begin
 
          end if;
 
-         put_line(ToString(message));
+         put_line(To_Lower(ToString(message)));
       end case;
    end loop;
 
