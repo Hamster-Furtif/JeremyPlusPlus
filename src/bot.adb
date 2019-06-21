@@ -56,13 +56,12 @@ begin
                end if;
                CompteurBluffInit := CompteurBluffInit +1;
             end if;
-
          else
             message := strat(logic, game);
 
          end if;
 
-         put_line( ToString(message));
+         put_line(ToString(message));
       end case;
    end loop;
 

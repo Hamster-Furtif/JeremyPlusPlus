@@ -114,7 +114,11 @@ package body botIO is
          end if;
          
       elsif (To_String(command.pars(1)) = "win") then
-                  
+         if(To_String(command.pars(2)) = "other") then
+            set_op_money(game, get_op_money(game) + Integer'Value(To_String(command.pars(3))));
+         else
+            set_my_money(game, get_my_money(game) + Integer'Value(To_String(command.pars(3))));
+         end if; 
          if (get_size(get_op_hand(game)) > 0) then
             null;
             end if;
@@ -124,11 +128,6 @@ package body botIO is
          emptySet(op_hand_replaced);
          emptySet(table_replaced);
          
-         if(To_String(command.pars(2)) = "other") then
-            set_op_money(game, get_op_money(game) + Integer'Value(To_String(command.pars(3))));
-         else
-            set_my_money(game, get_my_money(game) + Integer'Value(To_String(command.pars(3))));
-         end if;
    end readUpdateHand;
    
    procedure printCard(card : in T_card) is
