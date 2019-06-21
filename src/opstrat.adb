@@ -68,10 +68,6 @@ package body opstrat is
          end if;
    end add_bluffed;
    
-   function get_avg_chances(logic : T_logic) return Float is
-   begin
-      return logic.avg_chances_taken;
-   end get_avg_chances;
    
    function can_bluff(logic : T_logic) return Boolean is
    begin
@@ -139,7 +135,10 @@ package body opstrat is
    function toString(round: T_round) return String is -- A FAIRE IMPORTANT
       s : String(1..50);
    begin
-      s := "ATTENTION FONCTION A FINIR";
+      if round.bet /= -1 then
+         
+         s := T_Move'Image(round.move)&" "&Integer'Image(round.bet);
+           end if;
       return s;
       end toString;
    

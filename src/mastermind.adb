@@ -85,7 +85,7 @@ package body  mastermind is
                if get_nbr_of_bluff(logic)/get_round(game) > PERCENT_BLUFF then                     -- l'adversaire bluffe souvent
                   return(create_round(call,-1));
                else                                                                                         -- l'adversaire bluffe peu
-                  if get_expectation(logic,game,history)) > float(BIG_ESP*get_my_money(game)) then
+                  if get_expectation(logic,game,history) > float(BIG_ESP*get_my_money(game)) then
                      return(create_round(bet, integer(float(get_amount_to_call(game)) + INT_LOW * get_my_money(game))));     -- l'esperance de gain est tres elevee
                      
                   elsif (get_expectation(logic,game,history) < 0 and abs(get_expectation(logic,game,history)) < SMALL_ESP*get_my_money(game)) OR get_expectation(logic,game,history)>0 then

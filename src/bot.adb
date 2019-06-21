@@ -23,8 +23,6 @@ procedure bot is
    NbBluffInit : Constant integer :=3;
    CompteurBluffInit : Integer :=0;
 
-
-   bet : Integer;
 begin
 
    initGame(game);
@@ -53,9 +51,9 @@ begin
                message := strat(logic, game, history);
             else
                if get_my_money(game) > get_op_money(game) then
-                  message := create_round(bet,Integer'image(IDIOT_OP*get_op_money(game)));
+                  message := create_round(bet,Integer(IDIOT_OP*get_op_money(game)));
                else
-                  message:= create_round(bet, integer'image(IDIOT_OWN*get_my_money(game)));
+                  message:= create_round(bet, Integer(IDIOT_OWN*get_my_money(game)));
                end if;
                CompteurBluffInit := CompteurBluffInit +1;
             end if;
@@ -66,7 +64,7 @@ begin
          end if;
 
          put_line( ToString(message));
-
+      end case;
    end loop;
 
 end;

@@ -19,8 +19,6 @@ package opstrat is
    procedure add_semi_bluff(logic : in out T_logic; r : in Float);
    procedure add_bluffed(logic : in out T_logic; r : in Float);
    
-   function get_avg_chances(logic : T_logic) return Float;
-   
    function can_bluff(logic : T_logic) return Boolean;
    function can_semi_bluff(logic : T_logic) return Boolean;
    function can_get_bluffed(logic : T_logic) return Boolean;
@@ -41,7 +39,6 @@ package opstrat is
    -- S/ esp     Float
    -- Entraine esp l'estimation de l'esperance de gain de la main en cours, avec les probabilites de bluff de l'adversaire
    function get_expectation(logic : T_logic; game : T_game; history : T_history) return Float;
-   procedure update_logic(logic :in out T_logic);
    
    
 private
