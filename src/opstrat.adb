@@ -1,40 +1,15 @@
 package body opstrat is
   
-   procedure add_T_round(h : in out T_history; move : in T_move; table : in T_set; bet : in Integer := -1) is
-   begin
-      h.rounds(h.size).move := move;
-      h.rounds(h.size).bet := bet;
-      h.size := h.size + 1;
-   end add_T_round;
    
-   function getMove(h : in T_history; i : in Integer) return T_move is
-   begin
-      if (i < h.size) then
-         return h.rounds(i).move;
-      else
-         return none;
-      end if;
-   end getMove;
-      
-   function getBet(h : in T_history; i : in Integer) return Integer is
-   begin
-      return h.rounds(i).bet;
-   end getBet;
-   
-   function getSize(h : in T_history) return Integer is
-   begin
-      return h.size;
-   end getSize;
-   
-   function opIsBluffing(op_hand : in T_set; history : in T_history) return Float is
+   function opIsBluffing(op_hand : in T_set) return Float is
       r : Float;
    begin
       
       --Si l'op a peu de chances de gagner, mais mise quand même, il bluff (r=1)
       --On diminue les chances linéairement de 0.5 à 0.75 jusqu'à atteindre 0, où la probabilité qu'il bluffe est estimée nulle
-      if(Get_Winning_Chance(get_card(op_hand, 0), get_card(op_hand, 1)) < 0.5 and getBet(history, 0) > 0) then
+      if(Get_Winning_Chance(get_card(op_hand, 0), get_card(op_hand, 1)) < 0.5) then
          r := 1.0;
-      elsif(Get_Winning_Chance(get_card(op_hand, 0), get_card(op_hand, 1)) < 0.75 and getBet(history, 0) > 0) then
+      elsif(Get_Winning_Chance(get_card(op_hand, 0), get_card(op_hand, 1)) < 0.75) then
          r := 3.0 - Get_Winning_Chance(get_card(op_hand, 0), get_card(op_hand, 1))*4.0;
       else
          r := 0.0;
@@ -68,7 +43,7 @@ package body opstrat is
          end if;
    end add_bluffed;
    
-   
+
    function can_bluff(logic : T_logic) return Boolean is
    begin
       return logic.can_bluff;
@@ -109,11 +84,11 @@ package body opstrat is
       return logic.nbr_of_bluffed;
    end get_nbr_of_bluffed;
    
-   function get_expectation(logic : T_logic; game : T_game; history : T_history) return Float is
+   function get_expectation(logic : T_logic; game : T_game) return Float is
       e : Float := 0.0;
       eb : Float := Float(get_pot(game) - get_min_bet(game));
       ob : Float := Float(get_min_bet(game));
-      P_we_bluff : Float := 0.2;
+      P_we_bluff : Float := 0.2; -- valeur arbitraire. On estime qu'on bluffe 20% du temps ...
       P_bluffed : Float := logic.nbr_of_bluffed / logic.bluffed_possibilities;
       P_bluff : Float := logic.nbr_of_bluff / logic.bluff_possibilities;
       win_chances : Float := logic.winning_chances;
@@ -132,14 +107,13 @@ package body opstrat is
       return round;
    end create_round;
    
-   function toString(round: T_round) return String is -- A FAIRE IMPORTANT
-      s : String(1..50);
+   function toString(round: T_round) return String is
    begin
-      if round.bet /= -1 then
-         
-         s := T_Move'Image(round.move)&" "&Integer'Image(round.bet);
-           end if;
-      return s;
-      end toString;
+      if(round.bet = -1) then
+         return round.move'Img;
+      else
+         return round.move'Img & " " & round.bet'Img;
+      end if;
+   end toString;
    
 end opstrat;

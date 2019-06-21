@@ -11,7 +11,7 @@ package Mastermind is
    --/Nécessite : tous les numeriques du t_logic >=0
    --/S : string
    -- Entraine : donne le message a retouner au moteur
-   function strat(logic : in T_logic; game : in T_game; history : in T_history) return T_round;
+   function strat(logic : in T_logic; game : in T_game) return T_round;
    
    
    --surcharges
