@@ -116,6 +116,8 @@ package body utils is
          return T_combination'Value("paire_2");
       end if;
       
+      --printCard(set.set(0));
+      --printCard(set.set(1));
       return T_combination'Value("none");
       
    end getBestCombination;

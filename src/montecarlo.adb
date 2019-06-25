@@ -1,5 +1,6 @@
 with Ada.Numerics.Discrete_Random, utils;
 use utils;
+with botIO; use botIO;
 
 package body montecarlo is
    package Rand_Int is new Ada.Numerics.Discrete_Random(Positive);
@@ -55,6 +56,7 @@ package body montecarlo is
          if(best > best_in_sample) then
             weaker_hands := weaker_hands +1;
          end if;
+
       end loop;
 
       

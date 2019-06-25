@@ -71,6 +71,7 @@ package body botIO is
       hand_replaced    : T_set    := get_hand(game);
       op_hand_replaced : T_set    := get_op_hand(game);
       table_replaced   : T_set    := get_table(game);
+      best_combinaison : T_combination;
    begin
       
       if(To_String(command.pars(1)) = "hand") then
@@ -78,10 +79,14 @@ package body botIO is
             emptySet(hand_replaced);
             addToSet(parseCard(To_String(command.pars(3))), hand_replaced);
             addToSet(parseCard(To_String(command.pars(4))), hand_replaced);
+            set_hand(game, hand_replaced);
+            set_winning_chances(logic, Get_Winning_Chance(get_card(get_hand(game),0), get_card(get_hand(game),1)));
+            initSample(sample, hand_replaced);
          else
             emptySet(op_hand_replaced);
             addToSet(parseCard(To_String(command.pars(3))), op_hand_replaced);
             addToSet(parseCard(To_String(command.pars(4))), op_hand_replaced);
+            set_op_hand(game,op_hand_replaced);
             if (get_current_move(logic) = bet) then
                add_bluff(logic, opIsBluffing(op_hand_replaced));
                end if;
@@ -89,11 +94,15 @@ package body botIO is
          
       elsif(To_String(command.pars(1)) = "table") then
          emptySet(table_replaced);
-         initSample(sample, table_replaced);
+         initSample(sample, get_hand(game));
          for i in 2..(command.size-1) loop        
             addToSet(parseCard(To_String(command.pars(i))), table_replaced);
-            addToSampleSets(sample, parseCard(To_String(command.pars(i))));
+            addToSampleSets(sample, parseCard(To_String(command.pars(i)))); 
          end loop;
+         set_table(game,table_replaced);
+         best_combinaison := getBestCombination(get_hand(game)+get_table(game));
+         set_winning_chances(logic, chancesOfWinning(sample,best_combinaison));
+
 
       elsif(To_String(command.pars(1)) = "pot") then
          set_pot(game,Integer'Value(To_String(command.pars(2))));
@@ -127,17 +136,12 @@ package body botIO is
             null;
             end if;
          end if;
-         
-         emptySet(hand_replaced);
-         emptySet(op_hand_replaced);
-         emptySet(table_replaced);
-         
    end readUpdateHand;
    
    procedure printCard(card : in T_card) is
    begin
       Put_Line(Standard_Error, "");
-      Put(Standard_Error, get_rank(card)+2);
+      Put(Standard_Error, get_rank(card)+1);
       Put(Standard_Error, "  of ");
       Put(Standard_Error, (T_colour'Image(get_colour(card))));
       Put_Line(Standard_Error, "");

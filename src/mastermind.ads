@@ -29,7 +29,7 @@ package Mastermind is
 
    --Constantes des seuils de winning chances
  
-   HIGH : constant Float := 0.90;
+   HIGH : constant Float := 0.85;
    MEDIUM : constant Float := 0.80;
    LOW : constant Float := 0.62;
    

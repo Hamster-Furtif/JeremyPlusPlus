@@ -72,7 +72,8 @@ package body opstrat is
    begin
       return logic.winning_chances;
    end get_winning_chances;
-   procedure set_winning_chances(logic : in out T_logic;chances : Float) is
+   
+   procedure set_winning_chances(logic : in out T_logic; chances : Float) is
    begin
       logic.winning_chances := chances;
    end set_winning_chances;
