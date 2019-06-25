@@ -2,6 +2,35 @@ with utils; use utils;
 package read_preflop is
 
   
+   
+   Type T_array_chance is Private;
+   
+   
+   
+   
+   -- / E : card1, card2 : T_card
+   -- nécessite : card1 differente de card2
+   -- / S : p : float
+   -- entraine : renvoie la probabilite p de gagner avec la main card1 et card2
+   Function Get_Winning_Chance (card1 : T_card; card2 : T_card) return Float;
+
+   
+   -- / E : card1, card2 : T_card
+   -- nécessite : card1 differente de card2
+   -- / S : p : float
+   -- entraine : renvoie la probabilite p de perdre avec la main card1 et card2
+   Function Get_Losing_Chance (card1 : T_card; card2 : T_card) return Float;
+
+   
+   -- / E : card1, card2 : T_card
+   -- nécessite : card1 differente de card2
+   -- / S : p : float
+   -- entraine : renvoie la probabilite p d'egalite avec la main card1 et card2
+   Function Get_Tie_Chance (card1 : T_card; card2 : T_card) return Float;
+
+   
+Private
+   
    Type T_array_chance is Array(0..168) of Integer;
    
    WIN_ARRAY : constant T_array_chance := (1781508418,1389004215,1370002117,1350786717,1331725962,1290209940,1269195105,1245678450,1220344506,1217936943,1198506708,1181668536,1164284001,
@@ -54,31 +83,6 @@ package read_preflop is
    -- va de l'as au 2
    -- surdiagonale : meme couleur
    -- diagonale et sous-diagonale : couleurs differentes
-   
-   
-   
-   
-   
-   -- / E : card1, card2 : T_card
-   -- nécessite : card1 differente de card2
-   -- / S : p : float
-   -- entraine : renvoie la probabilite p de gagner avec la main card1 et card2
-   Function Get_Winning_Chance (card1 : T_card; card2 : T_card) return Float;
-
-   
-   -- / E : card1, card2 : T_card
-   -- nécessite : card1 differente de card2
-   -- / S : p : float
-   -- entraine : renvoie la probabilite p de perdre avec la main card1 et card2
-   Function Get_Losing_Chance (card1 : T_card; card2 : T_card) return Float;
-
-   
-   -- / E : card1, card2 : T_card
-   -- nécessite : card1 differente de card2
-   -- / S : p : float
-   -- entraine : renvoie la probabilite p d'egalite avec la main card1 et card2
-   Function Get_Tie_Chance (card1 : T_card; card2 : T_card) return Float;
-
    
    -- / E : x,y : entiers
    -- / E : lst : T_array_chance
