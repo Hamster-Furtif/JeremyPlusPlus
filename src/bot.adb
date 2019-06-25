@@ -39,7 +39,7 @@ begin
       when update_game => readUpdateGame(last_command, game);
 
          --update_hand
-      when update_hand => readUpdateHand(last_command, game, sample);
+      when update_hand => readUpdateHand(last_command, game, sample, logic);
 
       when action =>
          best_combinaison := getBestCombination(get_hand(game)+get_table(game));

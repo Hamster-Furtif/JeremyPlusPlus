@@ -27,7 +27,9 @@ package opstrat is
    function create_round(move : T_move; bet : Integer) return T_round;
    function toString(round: T_round) return String;
    procedure set_winning_chances(logic : in out T_logic;chances : Float);
-   
+   procedure set_current_move(logic : in out T_logic; move: T_move);
+   function get_current_move(logic : in T_logic) return T_move;
+  
    -- E/ logic   T_logic
    -- E/ game    T_game
    -- S/ esp     Float
@@ -50,6 +52,7 @@ private
       can_semi_bluff  : Boolean := FALSE;
       can_get_bluffed : Boolean := FALSE;
       has_logic       : Boolean := TRUE;
+      current_move    : T_move := none;
          
       nbr_of_bluff      : Float := 0.0;
       nbr_of_semi_bluff : Float := 0.0;

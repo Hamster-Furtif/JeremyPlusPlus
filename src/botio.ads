@@ -1,5 +1,5 @@
-with ada.Strings.Unbounded, utils, montecarlo, ada.Integer_Text_IO;
-use ada.Strings.Unbounded, utils, montecarlo, ada.Integer_Text_IO;
+with ada.Strings.Unbounded, utils, montecarlo, ada.Integer_Text_IO, opstrat;
+use ada.Strings.Unbounded, utils, montecarlo, ada.Integer_Text_IO, opstrat;
 
 package botIO is
 
@@ -18,7 +18,7 @@ package botIO is
    --Permet d'interpreter des commandes de type settings, update_game et update_hand
    procedure readSettings(command : T_command; game :  in out T_game);
    procedure readUpdateGame(command : T_command; game :  in out T_game);
-   procedure readUpdateHand(command : T_command; game : in out T_game;  sample : in out T_Sample);   
+   procedure readUpdateHand(command : T_command; game : in out T_game;  sample : in out T_Sample; logic : in out T_logic);   
    
    --Affiche la valeur et la couleur d'une carte dans la console (sert a debugger)
    procedure printCard(card : in T_card);
