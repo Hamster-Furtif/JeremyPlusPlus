@@ -125,4 +125,12 @@ package body opstrat is
       end if;
    end toString;
    
+   procedure set_current_move(logic : in out T_logic; move: T_move) is
+   begin
+      logic.current_move := move;
+   end set_current_move;
+   function get_current_move(logic : in T_logic) return T_move is
+   begin
+      return logic.current_move;
+      end get_current_move;
 end opstrat;

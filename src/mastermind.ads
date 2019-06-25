@@ -35,11 +35,11 @@ package Mastermind is
    
    --Pourcentage de raise pour adversaire idiot
    
-   IDIOT_OWN : constant float :=0.2;
-   IDIOT_OP : constant float :=0.5;
+   IDIOT_OWN : constant float :=0.05;
+   IDIOT_OP : constant float :=0.1;
    
    --Pourcentage de raise pour adversaire intelligent
-   INT_HIGH : constant float := 0.15;
+   INT_HIGH : constant float := 0.10;
    INT_LOW : constant float := 0.05;
    
    --Comparaison esperance gain et propre stack

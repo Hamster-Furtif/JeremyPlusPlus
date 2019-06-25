@@ -67,7 +67,7 @@ package body botIO is
 
    end readUpdateGame;
    
-   procedure readUpdateHand(command : T_command; game :  in out T_game; sample : in out T_Sample) is
+   procedure readUpdateHand(command : T_command; game :  in out T_game; sample : in out T_Sample; logic : in out T_logic) is
       hand_replaced    : T_set    := get_hand(game);
       op_hand_replaced : T_set    := get_op_hand(game);
       table_replaced   : T_set    := get_table(game);
@@ -82,6 +82,9 @@ package body botIO is
             emptySet(op_hand_replaced);
             addToSet(parseCard(To_String(command.pars(3))), op_hand_replaced);
             addToSet(parseCard(To_String(command.pars(4))), op_hand_replaced);
+            if (get_current_move(logic) = bet) then
+               add_bluff(logic, opIsBluffing(op_hand_replaced));
+               end if;
          end if;
          
       elsif(To_String(command.pars(1)) = "table") then
@@ -103,13 +106,13 @@ package body botIO is
          set_min_bet(game,Integer'Value(To_String(command.pars(2))));
 
       elsif (To_String(command.pars(1)) = "move") then
-         null;
-         
+        
          if(To_String(command.pars(2)) = "other" ) then
             if (To_String(command.pars(3)) = "bet") then
                set_op_money(game, get_op_money(game) - Integer'Value(To_String(command.pars(4))));
+               set_current_move(logic, bet);
             else
-               null;
+               set_current_move(logic, none);
             end if;
 
          end if;
