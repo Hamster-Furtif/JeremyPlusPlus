@@ -13,8 +13,6 @@ procedure bot is
 
    last_command : T_command;
 
-   best_combinaison : T_combination;
-
    sample : T_Sample;
 
    winning_chances : Float;
@@ -42,13 +40,13 @@ begin
       when update_hand => readUpdateHand(last_command, game, sample, logic);
 
       when action =>
-         best_combinaison := getBestCombination(get_hand(game)+get_table(game));
-         winning_chances := chancesOfWinning(sample, best_combinaison);
-         set_winning_chances(logic, winning_chances);
+
+         winning_chances := get_winning_chances(logic);
 
          if CompteurBluffInit<NbBluffInit then --On veut initialiser notre strategie en bluffant au moins 3 fois (initialisation des booleens nous informant sur le bluff)
             if (winning_chances >= LOW) then
                message := strat(logic, game);
+
             else
                if get_my_money(game) > get_op_money(game) then
                   message := create_round(bet,Integer(IDIOT_OP*get_op_money(game)));
@@ -60,9 +58,14 @@ begin
          else
             message := strat(logic, game);
 
-         end if;
 
-         put_line(To_Lower(ToString(message)));
+         end if;
+         Put_Line(Standard_Error,To_Lower(ToString(message)));
+         printCard(get_card(get_hand(game),0));
+         printCard(get_card(get_hand(game),1));
+         Put_Line(Standard_Error, winning_chances'Img);
+         Put_line(To_Lower(ToString(message)));
+
       end case;
    end loop;
    Put_Line(Standard_Error, can_bluff(logic)'Img&can_get_bluffed(logic)'Img&can_semi_bluff(logic)'Img);
