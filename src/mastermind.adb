@@ -57,7 +57,9 @@ package body  mastermind is
          --l'adversaire ne sait pas bluffer-
          -----------------------------------
          if not(can_bluff(logic)) then 
-                                       
+            if get_pot(game) > 0.75*get_my_money(game) and get_winning_chances(logic)< HIGH and get_current_move(logic)=bet then 
+               return create_round(check, -1);
+               end if;
             --Si on a de grandes chances de gagner, on mise baucoup d'argent
             if (get_winning_chances(logic) >= HIGH) then
                return(create_round(bet, Integer'Max(Integer'Min(100 + Integer(get_winning_chances(logic)*Float(100)), get_op_money(game)), get_min_bet(game))));

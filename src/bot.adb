@@ -65,5 +65,5 @@ begin
          put_line(To_Lower(ToString(message)));
       end case;
    end loop;
-
+   Put_Line(Standard_Error, can_bluff(logic)'Img&can_get_bluffed(logic)'Img&can_semi_bluff(logic)'Img);
 end;
