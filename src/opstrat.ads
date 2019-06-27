@@ -6,13 +6,29 @@ package opstrat is
    type T_round is private;
    type T_logic is private;
    
-   
+   --E/op_hand : T_set
+   --Necessite : Op_hand contient 2 cartes
+   --S/proba : Float
+   --Entraine : Calcule la probabilite que l'adversaire ait bluffe lors d'un round
    function opIsBluffing(op_hand : in T_set) return float;
    
+   --E/r : Float
+   --E/S/ logic : T_logic
+   --Necessite : None
+   --Entraine : actualise le nombre de bluff de l'adversaire dans la partie et le booleen can_bluff
    procedure add_bluff(logic : in out T_logic; r : in Float);
+   --E/r : Float
+   --E/S/ logic : T_logic
+   --Necessite : None
+   --Entraine : actualise le nombre de semi-bluff de l'adversaire dans la partie et le booleen can_semi_bluff
    procedure add_semi_bluff(logic : in out T_logic; r : in Float);
+   --E/r : Float
+   --E/S/ logic : T_logic
+   --Necessite : None
+   --Entraine : actualise le nombre de fois ou l'adversaire nous a bluffe 
    procedure add_bluffed(logic : in out T_logic; r : in Float);
    
+   --accesseurs en lecture
    function can_bluff(logic : T_logic) return Boolean;
    function can_semi_bluff(logic : T_logic) return Boolean;
    function can_get_bluffed(logic : T_logic) return Boolean;
@@ -23,6 +39,7 @@ package opstrat is
    function get_nbr_of_bluff(logic : T_logic) return Float;
    function get_nbr_of_semi_bluff(logic : T_logic) return Float;
    function get_nbr_of_bluffed(logic : T_logic) return Float;
+   
    
    function create_round(move : T_move; bet : Integer) return T_round;
    function toString(round: T_round) return String;
