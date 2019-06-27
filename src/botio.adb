@@ -67,11 +67,10 @@ package body botIO is
 
    end readUpdateGame;
    
-   procedure readUpdateHand(command : T_command; game :  in out T_game; sample : in out T_Sample; logic : in out T_logic) is
+   procedure readUpdateHand(command : T_command; game :  in out T_game; logic : in out T_logic) is
       hand_replaced    : T_set    := get_hand(game);
       op_hand_replaced : T_set    := get_op_hand(game);
       table_replaced   : T_set    := get_table(game);
-      best_combinaison : T_combination;
    begin
       
       if(To_String(command.pars(1)) = "hand") then
@@ -81,7 +80,6 @@ package body botIO is
             addToSet(parseCard(To_String(command.pars(4))), hand_replaced);
             set_hand(game, hand_replaced);
             set_winning_chances(logic, Get_Winning_Chance(get_card(get_hand(game),0), get_card(get_hand(game),1)));
-            initSample(sample, hand_replaced);
          else
             emptySet(op_hand_replaced);
             addToSet(parseCard(To_String(command.pars(3))), op_hand_replaced);
@@ -94,15 +92,11 @@ package body botIO is
          
       elsif(To_String(command.pars(1)) = "table") then
          emptySet(table_replaced);
-         initSample(sample, get_hand(game));
          for i in 2..(command.size-1) loop        
-            addToSet(parseCard(To_String(command.pars(i))), table_replaced);
-            addToSampleSets(sample, parseCard(To_String(command.pars(i)))); 
+            addToSet(parseCard(To_String(command.pars(i))), table_replaced); 
          end loop;
          set_table(game,table_replaced);
-         best_combinaison := getBestCombination(get_hand(game)+get_table(game));
-         set_winning_chances(logic, chancesOfWinning(sample,best_combinaison));
-
+         set_winning_chances(logic, chancesOfWinning(get_hand(game),get_table(game)));
 
       elsif(To_String(command.pars(1)) = "pot") then
          set_pot(game,Integer'Value(To_String(command.pars(2))));

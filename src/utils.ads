@@ -89,7 +89,7 @@ private
          colour : T_colour;
       end record;
  
-   type T_card_list is Array(0..51) of T_card;
+   type T_card_list is Array(0..52) of T_card;
  
    type T_set is
       record

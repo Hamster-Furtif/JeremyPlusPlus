@@ -13,8 +13,6 @@ procedure bot is
 
    last_command : T_command;
 
-   sample : T_Sample;
-
    winning_chances : Float;
 
    NbBluffInit : Constant integer :=3;
@@ -37,7 +35,7 @@ begin
       when update_game => readUpdateGame(last_command, game);
 
          --update_hand
-      when update_hand => readUpdateHand(last_command, game, sample, logic);
+      when update_hand => readUpdateHand(last_command, game, logic);
 
       when action =>
 
