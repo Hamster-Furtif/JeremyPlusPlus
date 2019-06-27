@@ -57,8 +57,13 @@ package body utils is
                combination.comb_type:=T_combination_type'Value("carre");
                for k in i..i+3 loop
                   addToSet(cards.set(k),combination.cards);
-                  return combination;
                end loop;
+               for i in 1..cards.size loop
+                  if not cardInSet(cards.set(i),combination.cards) then
+                     addToSet(cards.set(i), combination.cards);
+               end if;
+            end loop;
+               return combination;
             end if;
          end loop;
          
@@ -112,6 +117,14 @@ package body utils is
       for i in 0..(cards.size-3) loop
          if cards.set(i).rank = cards.set(i+2).rank then
             combination.comb_type:= T_combination_type'Value("brelan");
+            addToSet(cards.set(i),combination.cards);
+            addToSet(cards.set(i+1),combination.cards);
+            addToSet(cards.set(i+2),combination.cards);
+            for i in 1..cards.size loop
+            if not cardInSet(cards.set(i),combination.cards) then
+               addToSet(cards.set(i), combination.cards);
+               end if;
+            end loop;
             return combination;
          end if;
       end loop;
@@ -127,12 +140,18 @@ package body utils is
       if(n_paires = 1) then
          combination.comb_type:= T_combination_type'Value("paire");
          for i in 1..cards.size loop
-            null;
-            
+            if not cardInSet(cards.set(i),combination.cards) then
+               addToSet(cards.set(i), combination.cards);
+               end if;
             end loop;
          return combination;
       elsif(n_paires >= 2) then
          combination.comb_type:= T_combination_type'Value("paire_2");
+         for i in 1..cards.size loop
+            if not cardInSet(cards.set(i),combination.cards) then
+               addToSet(cards.set(i), combination.cards);
+               end if;
+            end loop;
          return combination;
       end if;
   
@@ -172,13 +191,26 @@ package body utils is
                   elsif get_rank(L.cards.set(i))<get_rank(R.cards.set(i)) then return False;
                   end if;
                end loop;
-            when others => null;
-               
-              
+            when paire =>
+               if L.cards.set(0).rank>R.cards.set(0).rank then return True;
+               elsif L.cards.set(0).rank<R.cards.set(0).rank then return False;
+               else 
+                  for i in 1..L.cards.size loop
+                     if get_rank(L.cards.set(i))>get_rank(R.cards.set(i)) then return True;
+                     elsif get_rank(L.cards.set(i))<get_rank(R.cards.set(i)) then return False;
+                     end if;
+                  end loop;
+                  end if;
+                  when others => return False;
+                    
+                  
           --none, paire, paire_2, brelan, suite, couleur, full, carre, quinte_f, quinte_f_r  
          end case;
-      
       end if;
+      for k in T_combination_type loop
+         if L.comb_type = k then return False; end if;
+         if R.comb_type = k then return True; end if;
+         end loop;
       return false;
    end ">";
    
@@ -204,7 +236,15 @@ package body utils is
       emptySet(game.hand);
    end initGame;
    
-
+   function cardInSet(card : in T_card; set : in T_set) return Boolean is
+   begin
+      for i in 0..get_size(set)-1 loop
+         if get_card(set, i) = card then return True; end if;
+      end loop;
+      return false;
+   end cardInSet;
+   
+   
    function get_settings (game : in T_game) return T_settings is
    begin
       return game.settings;

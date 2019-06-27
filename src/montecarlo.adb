@@ -33,13 +33,7 @@ package body montecarlo is
       return card;
    end randomCard;
    
-   function cardInSet(card : in T_card; set : in T_set) return Boolean is
-   begin
-      for i in 0..get_size(set)-1 loop
-         if get_card(set, i) = card then return True; end if;
-      end loop;
-      return false;
-   end cardInSet;
+   
    
    
          

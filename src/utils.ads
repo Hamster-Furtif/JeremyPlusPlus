@@ -41,6 +41,12 @@ package utils is
    --Initialise un t_game
    procedure initGame(game : in out T_game);
    
+   --E/ card : T_card
+   --E/ set : T_set
+   --Necessite : None
+   --S/ : Boolean
+   --Entraine   :Verifie qu'un ensemble contient une carte en particulier
+   function cardInSet(card : in T_card; set : in T_set) return Boolean;
    
    --Accesseurs generes en python
    function get_settings (game : in T_game) return T_settings;

@@ -24,11 +24,4 @@ package montecarlo is
    --Entraine : Renvoie une carte aleatoire
    function randomCard(max : in Integer) return T_card;
    
-private
-   --E/ card : T_card
-   --E/ set : T_set
-   --Necessite : None
-   --S/ : Boolean
-   --Entraine   :Verifie qu'un ensemble contient une carte en particulier
-   function cardInSet(card : in T_card; set : in T_set) return Boolean;
 end montecarlo;
