@@ -2,7 +2,9 @@ with ada.Text_IO, opstrat, utils;
 use ada.Text_IO, opstrat, utils;
 
 package body  mastermind is
-   
+   --------------
+   --surcharges
+   --------------
    function "*"(a : in integer; b : in float) return float is
    Begin
       return float(a)*b;
@@ -80,26 +82,34 @@ package body  mastermind is
             --l'adversaire sait bluffer-
             ----------------------------
          else
-            if get_winning_chances(logic) >= HIGH then                                                -- on a de grandes chances de gagner
+            if get_winning_chances(logic) >= HIGH then                                                
+            -- on a de grandes chances de gagner
                return(create_round(bet,integer(float(get_amount_to_call(game)) + INT_HIGH*get_my_money(game))));
                   
-            elsif get_winning_chances(logic) > MEDIUM then         -- on a des chances moyennes de gagner
-               if get_nbr_of_bluff(logic)/get_round(game) > PERCENT_BLUFF then                     -- l'adversaire bluffe souvent
+            elsif get_winning_chances(logic) > MEDIUM then         
+            -- on a des chances moyennes de gagner
+               if get_nbr_of_bluff(logic)/get_round(game) > PERCENT_BLUFF then
+               -- l'adversaire bluffe souvent
                   return(create_round(call,-1));
-               else                                                                                         -- l'adversaire bluffe peu
+               else                                                                                         
+               -- l'adversaire bluffe peu
                   if get_expectation(logic,game) > float(BIG_ESP*get_my_money(game)) then
-                     return(create_round(bet, integer(float(get_amount_to_call(game)) + INT_LOW * get_my_money(game))));     -- l'esperance de gain est tres elevee
+                  -- l'esperance de gain est tres elevee
+                     return(create_round(bet, integer(float(get_amount_to_call(game)) + INT_LOW * get_my_money(game))));    
                      
                   elsif (get_expectation(logic,game) < 0 and abs(get_expectation(logic,game)) < SMALL_ESP*get_my_money(game)) OR get_expectation(logic, game)>0 then
-                     return(create_round(call, -1));                                                                           -- on a une esperance positive ou legerement negative 
+                  -- on a une esperance positive ou legerement negative 
+                     return(create_round(call, -1));                                                                           
                       
-                  else                                                                                         -- l'esperance de gain est siginificativement negative
+                  else      
+                  -- l'esperance de gain est siginificativement negative
                      return(create_round(check,-1));
                   end if ;
                
                end if;
             
-            else                                                                                       -- on a peu de chances de gagner
+            else                                                                                       
+            -- on a peu de chances de gagner
                return(create_round(check,-1));
             
             end if;
