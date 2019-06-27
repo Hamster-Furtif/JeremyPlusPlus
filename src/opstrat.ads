@@ -3,7 +3,9 @@ use utils, read_preflop;
 
 package opstrat is
 
+   -- Represente le mouvement qu'on veut effectuer
    type T_round is private;
+   -- Represente la psychologie de l'adversaire
    type T_logic is private;
    
    --E/op_hand : T_set
@@ -40,15 +42,26 @@ package opstrat is
    function get_nbr_of_semi_bluff(logic : T_logic) return Float;
    function get_nbr_of_bluffed(logic : T_logic) return Float;
    
+   function get_current_move(logic : in T_logic) return T_move;
    
+   --constructeur d'un T_round
    function create_round(move : T_move; bet : Integer) return T_round;
+   
+   --E/T_round : round
+   --Necessite : None
+   --S/ String : message
+   --Entraine : Convertit notre round (qui represente le mouvement qu'on veut effectuer) 
+   --           en une chaine de caractres comprehensible par le moteur
    function toString(round: T_round) return String;
+   
+   --accesseurs en ecriture
    procedure set_winning_chances(logic : in out T_logic;chances : Float);
    procedure set_current_move(logic : in out T_logic; move: T_move);
-   function get_current_move(logic : in T_logic) return T_move;
+   
   
    -- E/ logic   T_logic
    -- E/ game    T_game
+   -- Necessite : None
    -- S/ esp     Float
    -- Entraine esp l'estimation de l'esperance de gain de la main en cours, avec les probabilites de bluff de l'adversaire
    function get_expectation(logic : T_logic; game : T_game) return Float;
