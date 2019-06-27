@@ -1,5 +1,5 @@
-with ada.Characters.Handling, utils, ada.Text_IO, ada.Integer_Text_IO, Ada.Calendar, botIO;
-use ada.Characters.Handling, utils, ada.Text_IO, ada.Integer_Text_IO, Ada.Calendar, botIO;
+with ada.Characters.Handling, utils, ada.Text_IO, ada.Integer_Text_IO, Ada.Calendar, botIO, montecarlo;
+use ada.Characters.Handling, utils, ada.Text_IO, ada.Integer_Text_IO, Ada.Calendar, botIO, montecarlo;
 package body utils is
 
    procedure addToSet(card : in T_card ; set : in out T_set) is
@@ -21,12 +21,13 @@ package body utils is
       n_paires : Natural := 0;
       --Pour la suite et la couleur
       suite_trouvee : Boolean:= true;
-      
+      combination : T_combination;
       cards : T_set := set;
+      hauteur : Integer := 0;
+      quit : Boolean := false;
    begin 
       
       sortSet(cards);  --Trie du plus grand au plus petit
-
       if cards.size >= 4 then
          
          --Quinte flush (royale)
@@ -38,9 +39,12 @@ package body utils is
       
          if(suite_trouvee) then
             if cards.set(0).rank = 12 then
-               return T_combination'Value("quinte_f_r");
+               combination.comb_type:=T_combination_type'Value("quinte_f_r");
+               combination.cards := cards;
+               return combination;
             else
-               return T_combination'Value("quinte_f");
+               combination.comb_type:=T_combination_type'Value("quinte_f");
+               return combination;
             end if;
             
          else
@@ -50,7 +54,11 @@ package body utils is
          --Carre ?
          for i in 0..(cards.size-3) loop
             if cards.set(i).rank = cards.set(i+3).rank then
-               return T_combination'Value("carre");
+               combination.comb_type:=T_combination_type'Value("carre");
+               for k in i..i+3 loop
+                  addToSet(cards.set(k),combination.cards);
+                  return combination;
+               end loop;
             end if;
          end loop;
          
@@ -65,7 +73,8 @@ package body utils is
             if (index_brelan = 0 and cards.set(3).rank = cards.set(4).rank)
               or (index_brelan = 2 and cards.set(0).rank = cards.set(1).rank)
             then
-               return T_combination'Value("full");
+               combination.comb_type:= T_combination_type'Value("full");
+               return combination;
             end if;            
          end if;
          
@@ -74,10 +83,11 @@ package body utils is
             if cards.set(i).colour /= cards.set(i+1).colour then
                suite_trouvee := false;
             end if;
-         end loop;
+         end loop; 
       
          if(suite_trouvee) then
-            return T_combination'Value("couleur");
+            combination.comb_type:= T_combination_type'Value("couleur");
+            return combination;
          else
             suite_trouvee := true;
          end if;
@@ -91,7 +101,8 @@ package body utils is
          end loop;
       
          if(suite_trouvee) then
-            return T_combination'Value("suite");
+            combination.comb_type:= T_combination_type'Value("suite");
+            return combination;
          else
             suite_trouvee := true;
          end if;
@@ -100,7 +111,8 @@ package body utils is
       --Brelan
       for i in 0..(cards.size-3) loop
          if cards.set(i).rank = cards.set(i+2).rank then
-            return T_combination'Value("brelan");
+            combination.comb_type:= T_combination_type'Value("brelan");
+            return combination;
          end if;
       end loop;
       
@@ -108,18 +120,25 @@ package body utils is
       for i in 0..(cards.size-2) loop
          if cards.set(i).rank = cards.set(i+1).rank then
             n_paires := n_paires + 1;
+            addToSet(cards.set(i),combination.cards);
+            addToSet(cards.set(i+1),combination.cards);
          end if;
       end loop;
       if(n_paires = 1) then
-         return T_combination'Value("paire");
+         combination.comb_type:= T_combination_type'Value("paire");
+         for i in 1..cards.size loop
+            null;
+            
+            end loop;
+         return combination;
       elsif(n_paires >= 2) then
-         return T_combination'Value("paire_2");
+         combination.comb_type:= T_combination_type'Value("paire_2");
+         return combination;
       end if;
-      
-      --printCard(set.set(0));
-      --printCard(set.set(1));
-      return T_combination'Value("none");
-      
+  
+      combination.comb_type:= T_combination_type'Value("none");
+      combination.cards := cards;
+      return combination;
    end getBestCombination;
    
    
@@ -145,11 +164,21 @@ package body utils is
    
    function ">"(L : T_combination ; R : T_combination) return boolean is
    begin
-      if( L = R) then return false; end if;
-      for e in T_combination loop
-         if(e = R) then return true; end if;
-         if(e = L) then return false; end if;
-      end loop;
+      if(L.comb_type = R.comb_type) then 
+         case L.comb_type is
+            when none =>
+               for i in 1..L.cards.size loop
+                  if get_rank(L.cards.set(i))>get_rank(R.cards.set(i)) then return True;
+                  elsif get_rank(L.cards.set(i))<get_rank(R.cards.set(i)) then return False;
+                  end if;
+               end loop;
+            when others => null;
+               
+              
+          --none, paire, paire_2, brelan, suite, couleur, full, carre, quinte_f, quinte_f_r  
+         end case;
+      
+      end if;
       return false;
    end ">";
    
