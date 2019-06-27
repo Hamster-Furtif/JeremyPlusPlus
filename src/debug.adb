@@ -49,8 +49,6 @@ begin
 
    ch := chancesOfWinning(hand,table);
    Put_Line(ch'IMG);
-   Put_Line(getBestCombination(hand+table)'Img);
-   b := getBestCombination(hand+table)>T_combination'Value("none");
    Put_Line(b'Img);
    Put_Line(Get_Winning_Chance(c1,c2)'IMG);
 end debug;

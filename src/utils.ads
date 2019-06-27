@@ -7,10 +7,16 @@ package utils is
    
    type T_colour is (empty, spades, hearts, diamonds, clovers);
    type T_move is (check, fold, call, bet, none);
-   type T_combination is (none, paire, paire_2, brelan, suite, couleur, full, carre, quinte_f, quinte_f_r);
+   type T_set is private;
+   type T_combination_type is (none, paire, paire_2, paire_3, brelan, suite, couleur, full, carre, quinte_f, quinte_f_r);
+   type T_combination is record
+      comb_type : T_combination_type;
+      lenght : Integer;
+      cards: T_set;
+      end record;
    
    type T_card is private;
-   type T_set is private;
+   
    type T_game is private;
    type T_settings is private;
    
