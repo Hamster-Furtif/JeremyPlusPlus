@@ -41,12 +41,7 @@ package body montecarlo is
       return false;
    end cardInSet;
    
-   procedure addToSampleSets(sample : in out T_Sample; card : T_card) is
-   begin
-      for set of sample loop
-         addToSet(card,set);
-      end loop;
-   end addToSampleSets;
+   
          
    function chancesOfWinning(hand : T_set; table : T_set) return float is
       table_size : Integer :=0;
