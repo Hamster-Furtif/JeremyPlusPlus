@@ -227,7 +227,29 @@ package body utils is
       end loop;
       return total;
    end "+";
-      
+   
+   function "+"(L : T_card; R: T_card) return T_set is
+   s: T_set;   
+   begin 
+   addToSet(L,s);addToSet(R,s);   
+      return s;
+   end "+";
+   
+   function "+"(L : T_set; R: T_card) return T_set is  
+   s: T_set :=L;
+   begin 
+    
+   addToSet(R,s); 
+      return s;
+   end "+";
+   
+   function "+"(L : T_card; R: T_set) return T_set is  
+   s: T_set :=R;
+   begin 
+   addToSet(L,s); 
+      return s;
+   end "+";
+   
    procedure initGame(game : in out T_game) is
    begin
       --emptySet(game.history);

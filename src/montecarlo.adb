@@ -38,7 +38,7 @@ package body montecarlo is
    
          
    function chancesOfWinning(hand : T_set; table : T_set) return float is
-      table_size : Integer :=0;
+      sample_size : Integer :=0;
       complementary_set : T_Set; -- Composé de 2 + (5-x) cartes, avec x le nombre de cartes dans T_set.
       set_enemy  : T_set;
       set_jeremy : T_set;
@@ -47,16 +47,17 @@ package body montecarlo is
       best_jeremy  : T_combination;    -- La meilleure combinaison de la table et notre main.
       wins : Float  := 0.0;    -- Compteur de victoires.
    begin
-      for i in 1..50000 loop
-         table_size := initSample(complementary_set,hand,table);
+      for i in 1..30000 loop
+         sample_size := initSample(complementary_set,hand,table);
          emptySet(complementary_table_set);
          emptySet(set_enemy);
          emptySet(set_jeremy);
-         if table_size/=5 then
-            for i in 1..(5-table_size) loop 
-               addToSet(get_card(complementary_set,i-1), complementary_table_set);
+         --if i<50 then Put_Line("SAMPLE SIZE :"&Integer'Image(sample_size)&", TABLE_SIZE:"&Integer'Image(get_size(table)));end if;
+         if sample_size>0 then 
+            for i in 1..(8-sample_size) loop 
+            addToSet(get_card(complementary_set,i-1), complementary_table_set);
             end loop;
-         end if;
+            end if;
          set_enemy := set_enemy + table; -- On rajoute la table au set de l'ennemi.
          set_enemy := set_enemy + complementary_set;   -- On rajoute les cartes générées aléatoirement au set de l'ennemi.
          set_jeremy := set_jeremy + table;
@@ -67,9 +68,19 @@ package body montecarlo is
          if(best_jeremy > best_enemy) then
             wins := wins +1.0;
          end if;
-         if (best_jeremy = best_enemy) then
-            wins := wins + 0.5;
-            end if;
+         if i<50 and FALSE then
+            Put_Line("------------------------------");Put_Line("Taille Jeremy :"&Integer'Image(get_size(set_jeremy))&", taille ennemy :"&Integer'Image(get_size(set_enemy)));
+         Put_Line("Combinaison Jeremy :");
+         for i in 1..get_size(set_jeremy) loop
+            printCard(get_card(set_jeremy,i-1));
+         end loop;
+         Put_Line("VS ....");
+         Put_Line("Combinaison Enemy :");
+         for i in 1..get_size(set_enemy) loop
+            printCard(get_card(set_enemy,i-1));
+            end loop;
+         Put_Line("RESULT : "&T_combination_type'Image(getBestCombination(set_jeremy).comb_type)&"vs"&T_combination_type'Image(getBestCombination(set_enemy).comb_type)&Boolean'Image(getBestCombination(set_jeremy)>getBestCombination(set_enemy)));
+         end if;
       end loop;
       return wins/50000.0;
    end chancesOfWinning;

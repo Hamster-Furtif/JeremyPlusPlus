@@ -7,48 +7,29 @@ with Ada.Numerics.Discrete_Random;
 procedure debug is
    package Rand_Int is new Ada.Numerics.Discrete_Random(Positive);
    gen : Rand_Int.Generator;
-   hand, table : T_set;
-   c1, c2, c3, c4, c5, c6, c7 : T_card;
-   s1,s2,s3,s4,s5, s6, s7 : T_set;
+   hand, table: T_set;
+   c1: T_card;
+   game: T_set;
    ch : Float;
-   b: Boolean;
 begin
-   set_rank(c1, 12);
-   set_colour(c1, hearts);
-   addToSet(c1, s1);
+        emptySet(game);
+      for i in 1..9 loop
+         loop
+            c1 := randomCard(52);
+            exit when not cardInSet(c1, game);
+         end loop;
+         addToSet(c1, game);
+      end loop;
 
-   set_rank(c2, 12);
-   set_colour(c2, diamonds);
-   addToSet(c2, s2);
-   --Kh,Kd,6h,3s,4h table
-   set_rank(c3, 4);
-   set_colour(c3, hearts);
-   addToSet(c3, s3);
-
-   set_rank(c4, 1);
-   set_colour(c4, spades);
-   addToSet(c4, s4);
-
-  set_rank(c5, 2);
-   set_colour(c5, hearts);
-   addToSet(c5, s5);
-
-
-
-   set_rank(c6, 13);
-   set_colour(c6, spades);
-   addToSet(c6, s6);
-
-   set_rank(c7, 13);
-   set_colour(c7, clovers);
-   addToSet(c7, s7);
-
-   hand := s6 + s7;
-   table := s1+s2+s3+s4+s5;
-   --As,Ac hand
-
-   ch := chancesOfWinning(hand,table);
-   Put_Line(ch'IMG);
-   Put_Line(b'Img);
-   Put_Line(Get_Winning_Chance(c1,c2)'IMG);
+      hand := get_card(game,0) + get_card(game,1);
+      table := get_card(game,2)+get_card(game,3);
+      --As,Ac hand
+   Put_Line("----------------------------------------");
+   Put_Line("CARTES DE JEREMY :");
+   printCard(get_card(game,0));printCard(get_card(game,1));
+   Put_Line("----------------------------------------");
+   Put_Line("CARTES DE LA TABLE :");
+   printCard(get_card(game,2));printCard(get_card(game,3));
+      ch := chancesOfWinning(hand,table);
+      Put_Line("CHANCES DE GAGNER :"&ch'Img);
 end debug;

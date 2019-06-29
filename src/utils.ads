@@ -24,7 +24,9 @@ package utils is
    function ">"(L : T_combination ; R : T_combination) return boolean; 
    --Permet de sommer deux T_Set
    function "+"(L : T_set; R : T_set) return T_set;
-
+   function "+"(L : T_card; R: T_card) return T_set;
+   function "+"(L : T_set; R: T_card) return T_set;
+   function "+"(L : T_card; R: T_set) return T_set;
    
    --Permet d'ajouter une carte a un enssemble
    procedure addToSet(card : in T_card ; set : in out T_set);
